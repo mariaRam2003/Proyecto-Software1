@@ -3,7 +3,6 @@ import BasicTable from "../components/BasicTable"
 import { testQuery } from "../config/supabaseClient"
 import { useEffect, useState } from "react"
 
-
 const ANICAM = () => {
 
   const [data, setData] = useState(null)
