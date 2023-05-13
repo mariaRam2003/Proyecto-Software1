@@ -16,4 +16,3 @@ const testQuery = async () => {
 
 export default supabase
 export { testQuery }
-
