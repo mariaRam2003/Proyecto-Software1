@@ -25,9 +25,9 @@ const ANICAM = () => {
 
   return (
     <div className="page anicam">
-      <h2>ANICAM</h2>
+      <h2>DATOS DE ANICAM</h2>
       <Link to="/registro-anicam">
-        <button><span>GUIA </span></button>
+        <button><span>GUIA</span></button>
         </Link>
       <BasicTable data = {data}/>  
     </div>

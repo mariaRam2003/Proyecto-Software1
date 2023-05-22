@@ -4,7 +4,11 @@
   --blue1: #15202b;
   --blue2: #081827;
 }
-h1,h2,h3 {
+h1 {
+  font-weight: 600;
+  font-size: 40px;
+}
+h2,h3 {
   margin: 0;
 }
 
@@ -32,14 +36,14 @@ nav img {
 
 nav a {
   color: #f2f2f2;
-  margin-left: 25px;
+  margin-left: 20px;
   padding: 5px;
   display: inline-block;
   text-decoration: none;
-  transition: background 0.2s linear;
+  transition: background 0.5s linear;
   border-radius: 5px;
-  
 }
+
 nav a:hover{
   background: #0081c5;
 }
