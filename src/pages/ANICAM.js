@@ -1,7 +1,8 @@
-import supabase from "../config/supabaseClient"
 import BasicTable from "../components/BasicTable"
 import { testQuery } from "../config/supabaseClient"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
+import "./ANICAM.css";
 
 const ANICAM = () => {
 
@@ -21,11 +22,16 @@ const ANICAM = () => {
     }
   }, [data]);
 
+
   return (
     <div className="page anicam">
       <h2>ANICAM</h2>
+      <Link to="/registro-anicam">
+        <button><span>GUIA </span></button>
+        </Link>
       <BasicTable data = {data}/>  
     </div>
+
   )
 }
 

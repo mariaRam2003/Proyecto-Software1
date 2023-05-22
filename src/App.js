@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import Home from "./pages/Home"
 import ANICAM from "./pages/ANICAM"
 import CUSCAR from "./pages/CUSCAR"
-
-
+import VALIDACION from "./pages/validacion";
+import Registro_Anicam from "./pages/Registro_Anicam";
 
 function App() {
   return (
@@ -24,6 +24,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Anicam" element={<ANICAM />} />
         <Route path="/CUSCAR" element={<CUSCAR />} />
+        <Route path="/validacion" element={<VALIDACION />} />
+        <Route path="/registro-anicam" element={<Registro_Anicam />} />
       </Routes>
     </BrowserRouter>
   );

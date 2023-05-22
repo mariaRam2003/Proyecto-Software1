@@ -14,8 +14,9 @@ body {
   font-family: 'Poppins';
   background: var(--blue2);
   background-image: url("img/fondoHome.png");
-  background-position: 50% -105%;
+  background-size: 87%;
   background-repeat: no-repeat;
+  background-position-x: 50px;
 }
 nav {
   background: var(--blue1);
@@ -41,7 +42,6 @@ nav a {
 }
 nav a:hover{
   background: #0081c5;
-
 }
 
 .page {
