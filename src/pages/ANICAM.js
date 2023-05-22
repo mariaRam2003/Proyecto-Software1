@@ -25,7 +25,7 @@ const ANICAM = () => {
 
   return (
     <div className="page anicam">
-      <h2>DATOS DE ANICAM</h2>
+      <h1>DATOS DE ANICAM</h1>
       <Link to="/registro-anicam">
         <button><span>GUIA</span></button>
         </Link>

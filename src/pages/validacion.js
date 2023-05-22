@@ -1,7 +1,7 @@
 const VALIDACION = () => {
     return (
       <div className="page Anicam">
-        <h2>VALIDACION</h2>
+        <h1>VALIDACION</h1>
       </div>
     )
   }

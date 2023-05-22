@@ -1,7 +1,7 @@
 const Registro_Anicam = () => {
     return (
       <div className="page Anicam">
-        <h2>REGISTRO</h2>
+        <h1>REGISTRO DE GUIA</h1>
       </div>
     )
   }
