@@ -29,6 +29,7 @@ const ANICAM = () => {
       <Link to="/registro-anicam">
         <button><span>GUIA</span></button>
         </Link>
+      
       <BasicTable data = {data}/>  
     </div>
 
