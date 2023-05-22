@@ -1,0 +1,27 @@
+.card-container {
+    background-color: #181616;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    border-radius: 10px;
+    width: fit-content;
+  }
+  
+  .card {
+    background-color: #15202b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 20px;
+    height: 300px;
+    width: 200px;
+  }
+.card:hover {
+    background-color: #0f161e;
+    transition: all 0.8s ;
+  }
+  
+  
