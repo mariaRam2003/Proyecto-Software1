@@ -1,6 +1,6 @@
 import './Table.css';
 import React, { useState } from 'react';
-import {insertData} from '../config/controller';
+import {insertAnicamViewData} from '../config/supabaseClient'
 
 function Table({ data }) {
     const dataCopy = JSON.parse(JSON.stringify(data));
@@ -54,7 +54,7 @@ function Table({ data }) {
     const commitChanges = () => {
         const commitArray = makeCommitArray(dataCopy, tableData);
         console.log('commit changes function', commitArray); //borrame
-        insertData(commitArray);
+        insertAnicamViewData(commitArray);
     };
 
   
