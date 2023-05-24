@@ -1,4 +1,5 @@
 import BasicTable from "../components/BasicTable"
+import Table from "../components/Table";
 import { testQuery } from "../config/supabaseClient"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
@@ -7,11 +8,12 @@ import "./ANICAM.css";
 const ANICAM = () => {
 
   const [data, setData] = useState(null)
-  //console.log(supabase) //borrar
+  
 
   useEffect(() => {
     testQuery().then(data => {
-      setData(data)      
+      setData(data)    
+      console.log('datos',data);  
     })
     
   }, [])
@@ -28,9 +30,8 @@ const ANICAM = () => {
       <h1>DATOS DE ANICAM</h1>
       <Link to="/registro-anicam">
         <button><span>GUIA</span></button>
-        </Link>
-      
-      <BasicTable data = {data}/>  
+        </Link>      
+      <Table data = {data}/>  
     </div>
 
   )

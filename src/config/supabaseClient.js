@@ -12,7 +12,23 @@ const testQuery = async () => {
     
     if (error) console.log('error', error)
     return data
+}   
+
+
+const insertAnicamViewData = async (data) => {
+    console.log('data', data)  
+    supabase.rpc('f_update_tables_data', data)
+        .then(response => {
+            console.log('response', response)
+            
+        })
+        .catch(error => {
+            console.log('error', error)
+            alert('Error al actualizar los datos', error)
+        })       
 }
 
+ 
 export default supabase
 export { testQuery }
+export { insertAnicamViewData }

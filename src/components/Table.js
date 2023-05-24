@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {insertAnicamViewData} from '../config/supabaseClient'
 
 function Table({ data }) {
-    const dataCopy = [...data];
+    const dataCopy = JSON.parse(JSON.stringify(data));
     const [tableData, setTableData] = useState([...data]);
 
 
@@ -41,25 +41,26 @@ function Table({ data }) {
         const length = initialData.length > newData.length ? initialData.length : newData.length;
 
         let commitArray = [];
-        for (let i = 0; i < length; i++) {
-            if (!isEqual(initialData[i], newData[i])) {
-                commitArray.push(data[i]);
+        for (let row = 0; row < length; row++) {
+            if (!isEqual(initialData[row], newData[row])) {
+                commitArray.push(newData[row]);
             }
         }
-        console.log(commitArray); //borrame
-        return commitArray;
+        console.log('commit array', commitArray); //borrame
+        return commitArray;  
     };
 
     //envia los cambios a la base de datos
     const commitChanges = () => {
         const commitArray = makeCommitArray(dataCopy, tableData);
+        console.log('commit changes function', commitArray); //borrame
         insertAnicamViewData(commitArray);
     };
 
   
     //modifica los datos de la tabla (tableData) cuando el usuario hace cambios
     const handleChange = (index, fieldName, event) => {
-        const newData = [...data];
+        const newData = JSON.parse(JSON.stringify(data));
         newData[index][fieldName] = event.target.value;
         setTableData(newData);
     };
