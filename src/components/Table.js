@@ -9,6 +9,8 @@ function Table({ data }) {
     useEffect(() => {        
         setTableData(data);
     }, [data]);
+
+
     //compara dos objetos
     function isEqual(obj1, obj2) {
         // Get the keys of the first object
@@ -61,7 +63,7 @@ function Table({ data }) {
   
     //modifica los datos de la tabla (tableData) cuando el usuario hace cambios
     const handleChange = (index, fieldName, event) => {
-        const newData = JSON.parse(JSON.stringify(data));
+        const newData = JSON.parse(JSON.stringify(tableData));
         newData[index][fieldName] = event.target.value;
         setTableData(newData);
     };
