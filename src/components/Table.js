@@ -1,12 +1,14 @@
 import './Table.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {insertData} from '../config/controller';
 
 function Table({ data }) {
     const dataCopy = JSON.parse(JSON.stringify(data));
-    const [tableData, setTableData] = useState([...data]);
+    const [tableData, setTableData] = useState([]);
 
-
+    useEffect(() => {        
+        setTableData(data);
+    }, [data]);
     //compara dos objetos
     function isEqual(obj1, obj2) {
         // Get the keys of the first object
@@ -66,33 +68,33 @@ function Table({ data }) {
   
     return (
         <>
-            <table>
-                <thead>
+            {data && tableData &&(
+                <table>
+                    <thead>
                     <tr>
-                        {Object.keys(data[0]).map((key) => {
-                            return <th key={`${key}-title`}>{key}</th>;
-                        })}
+                        {Object.keys(data[0]).map((key) => (
+                        <th key={`${key}-title`}>{key}</th>
+                        ))}
                     </tr>
-                </thead>
-                <tbody>
-                    {tableData.map((object, index) => {
-                        return (
-                            <tr key={`${index}`}>
-                                {Object.keys(object).map((key) => (
-                                    <td key={`${key}-${index}`}>
-                                        <input
-                                        className="cell"
-                                        type="text"
-                                        onChange={(event) => handleChange(index, key, event)}
-                                        value={object[key]}
-                                        />
-                                    </td>
-                                ))}
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {tableData.map((object, index) => (
+                        <tr key={`${index}`}>
+                        {Object.keys(object).map((key) => (
+                            <td key={`${key}-${index}`}>
+                            <input
+                                className="cell"
+                                type="text"
+                                onChange={(event) => handleChange(index, key, event)}
+                                value={object[key]}
+                            />
+                            </td>
+                        ))}
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            )}
 
             <div className="commit-container">
                 <button className='commit-commit-button' onClick={commitChanges}>
