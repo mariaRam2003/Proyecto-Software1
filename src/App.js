@@ -6,6 +6,7 @@ import ANICAM from "./pages/ANICAM"
 import CUSCAR from "./pages/CUSCAR"
 import VALIDACION from "./pages/validacion";
 import Registro_Anicam from "./pages/Registro_Anicam";
+import Dev from "./pages/Dev";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/CUSCAR" element={<CUSCAR />} />
         <Route path="/validacion" element={<VALIDACION />} />
         <Route path="/registro-anicam" element={<Registro_Anicam />} />
+        <Route path="/dev" element = {<Dev/>} />
       </Routes>
     </BrowserRouter>
   );
