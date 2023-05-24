@@ -1,10 +1,7 @@
 import { insertAnicamViewData } from "./supabaseClient";
 
 const insertData = async (data) => {
-    data.map((row) => {
-        console.log('row', row); //borrame
-        insertAnicamViewData(row);
-    });
+    insertAnicamViewData(data);
 };
 
-export default insertData;
+export { insertData };

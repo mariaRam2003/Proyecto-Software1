@@ -29,6 +29,4 @@ const insertAnicamViewData = async (data) => {
 }
 
  
-export default supabase
-export { testQuery }
-export { insertAnicamViewData }
+export { testQuery, insertAnicamViewData, supabase };
