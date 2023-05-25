@@ -17,7 +17,7 @@ const testQuery = async () => {
 
 const insertAnicamViewData = async (data) => {
     console.log('data', data)  
-    supabase.rpc('f_update_tables_data', data)
+    supabase.rpc('update_data_func', data)
         .then(response => {
             console.log('response', response)
             
