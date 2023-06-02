@@ -70,33 +70,35 @@ function Table({ data }) {
   
     return (
         <>
-            {data && tableData &&(
-                <table>
-                    <thead>
-                    <tr>
-                        {Object.keys(data[0]).map((key) => (
-                        <th key={`${key}-title`}>{key}</th>
+            <div className='table-container'>
+                {data && tableData &&(
+                    <table className='table-table'>
+                        <thead className='table-head'>
+                            <tr className='table-head-row'>
+                                {Object.keys(data[0]).map((key) => (
+                                <th className='table-header' key={`${key}-title`}>{key}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody className='table-body'>
+                        {tableData.map((object, index) => (
+                            <tr className='table-row' key={`${index}`}>
+                            {Object.keys(object).map((key) => (
+                                <td key={`${key}-${index}`}>
+                                <input 
+                                    className="cell"
+                                    type="text"
+                                    onChange={(event) => handleChange(index, key, event)}
+                                    value={object[key]}
+                                />
+                                </td>
+                            ))}
+                            </tr>
                         ))}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {tableData.map((object, index) => (
-                        <tr key={`${index}`}>
-                        {Object.keys(object).map((key) => (
-                            <td key={`${key}-${index}`}>
-                            <input
-                                className="cell"
-                                type="text"
-                                onChange={(event) => handleChange(index, key, event)}
-                                value={object[key]}
-                            />
-                            </td>
-                        ))}
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            )}
+                        </tbody>
+                    </table>
+                )}
+            </div>
 
             <div className="commit-container">
                 <button className='commit-commit-button' onClick={commitChanges}>

@@ -3,6 +3,7 @@
   :root {
     --blue1: #15202b;
     --blue2: #081827;
+    --font-family: 'Poppins', sans-serif;
   }
   h1 {
     font-weight: 600 !important; 
