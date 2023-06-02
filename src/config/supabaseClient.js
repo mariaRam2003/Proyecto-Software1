@@ -5,7 +5,7 @@ const supabaseKey = process.env.REACT_APP_ANON_KEY
 
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-const testQuery = async () => {
+const anicamView = async () => {
     const { data, error } = await supabase
         .from('anicam_table_view')
         .select('*')        
@@ -14,10 +14,19 @@ const testQuery = async () => {
     return data
 }   
 
+const cuscarView = async () => {
+    const { data, error } = await supabase
+        .from('Cuscar')
+        .select('*')        
+    
+    if (error) console.log('error', error)
+    return data
+}   
 
-const insertAnicamViewData = async (data) => {
+
+const insertViewData = async (data, functionName) => {
     console.log('data', data)  
-    supabase.rpc('update_data_func', data)
+    supabase.rpc(functionName, data)
         .then(response => {
             console.log('response', response)
             
@@ -29,4 +38,4 @@ const insertAnicamViewData = async (data) => {
 }
 
  
-export { testQuery, insertAnicamViewData, supabase };
+export { anicamView, cuscarView, insertViewData, supabase };

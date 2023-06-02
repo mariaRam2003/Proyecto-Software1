@@ -2,7 +2,7 @@ import "./Table.css";
 import React, { useEffect, useState } from "react";
 import { insertData } from "../config/controller";
 
-function Table({ data }) {
+function Table({ data, functionName }) {
   const dataCopy = JSON.parse(JSON.stringify(data));
   const [tableData, setTableData] = useState([]);
 
@@ -57,7 +57,7 @@ function Table({ data }) {
   //envia los cambios a la base de datos
   const commitChanges = () => {
     const commitArray = makeCommitArray(dataCopy, tableData);
-    insertData(commitArray);
+    insertData(commitArray, functionName);
   };
 
   //modifica los datos de la tabla (tableData) cuando el usuario hace cambios

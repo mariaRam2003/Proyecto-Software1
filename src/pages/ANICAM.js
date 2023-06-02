@@ -1,6 +1,6 @@
 import BasicTable from "../components/BasicTable"
 import Table from "../components/Table";
-import { testQuery } from "../config/supabaseClient"
+import { anicamView } from "../config/supabaseClient"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import "./ANICAM.css";
@@ -11,7 +11,7 @@ const ANICAM = () => {
   
 
   useEffect(() => {
-    testQuery().then(data => {
+    anicamView().then(data => {
       setData(data)    
       console.log('datos',data);  
     })
@@ -31,7 +31,7 @@ const ANICAM = () => {
       <Link to="/registro-anicam">
         <button><span>GUIA</span></button>
         </Link>      
-      <Table data = {data}/>  
+      <Table data = {data} functionName={'update_data_func'}/>  
     </div>
 
   )

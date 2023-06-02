@@ -1,4 +1,4 @@
-import { insertAnicamViewData } from "./supabaseClient";
+import { insertViewData } from "./supabaseClient";
 
 const updateArray = (array) => {
     const updatedArray = array.map(obj => {
@@ -13,11 +13,11 @@ const updateArray = (array) => {
     return updatedArray;
 };
 
-const insertData = async (data) => {
+const insertData = async (data, functionName) => {
     const updatedData = updateArray(data);
 
     updatedData.map((row) => {        
-        insertAnicamViewData(row);
+        insertViewData(row, functionName);
     });
 };
 
