@@ -1,58 +1,60 @@
-table{
-    border-collapse: collapse;
-    background-color: black;
-    
-    overflow: hidden;
+table {
+  border-collapse: collapse;
+  background-color: #5d686b;
+
+  overflow: hidden;
 }
 
 tr {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-td{
-    height: 100%;
+td {
+  height: 100%;
 }
 
-.table-container{
-    overflow-x: auto;
-    width:100%;
+.table-container {
+  overflow-x: auto;
+  width: 100%;
 }
 
-.table-header{
-    /*styling*/
-    background-color: white;
-    color: black;
+.table-header {
+  /*styling*/
+  background-color: #15202b;
+  color: white;
 
-    /*font*/
-    font-weight: 500;
+  /*font*/
+  font-weight: 400;
+  font-size: 15px;
 
-    /*dimensions*/
-    padding: 0 10px 0 10px;
-    height: 100%;
-    width: 100%;
+  /*dimensions*/
+  padding: 0 10px 0 10px;
+  height: 100%;
+  width: 100%;
 }
 
-.cell{
-    width: 100%;
-    height: 40px;
-    margin: 0;
+.cell {
+  width: 100%;
+  height: 40px;
+  margin: 0;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    border: 0;
-    padding: 0;
-    padding-left: 10px;
+  border: 0;
+  padding: 0;
+  padding-left: 10px;
 
-    background-color: white;
-    transition: background-color 0.2s ease-in-out;
+  background-color: #1d2d3c;
+  color: white;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.cell:focus{
-    outline:1px solid red;
-    background-color: white;
+.cell:focus {
+  outline: 1px solid #0054db;
+  background-color: #0081c5;
 }
 
-.cell:hover{
-    background-color: #e0e0e0;
+.cell:hover {
+  background-color: #0081c5;
 }
