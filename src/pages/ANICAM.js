@@ -4,6 +4,7 @@ import { anicamView } from "../config/supabaseClient";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ANICAM.css";
+
 import Uploader from "../components/Uploader";
 
 const ANICAM = () => {
