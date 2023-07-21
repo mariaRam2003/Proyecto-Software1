@@ -101,6 +101,10 @@ function Table({ data, functionName }) {
         )}
       </div>
 
+      <div className="addRow-container">
+        <tr className="table-row"></tr>
+      </div>
+
       <div className="commit-container">
         <button className="commit-commit-button" onClick={commitChanges}>
           Commit
