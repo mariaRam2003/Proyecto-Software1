@@ -1,6 +1,7 @@
 import "./Table.css";
 import React, { useEffect, useState } from "react";
 import { insertData } from "../config/controller";
+import Uploader from "./Uploader";
 
 function Table({ data, functionName }) {
   const dataCopy = JSON.parse(JSON.stringify(data));
@@ -54,11 +55,8 @@ function Table({ data, functionName }) {
     return commitArray;
   };
 
-  //envia los cambios a la base de datos
-  const commitChanges = () => {
-    const commitArray = makeCommitArray(dataCopy, tableData);
-    insertData(commitArray, functionName);
-  };
+  //descarga los datos de la tabla
+  const downloadChanges = () => {};
 
   //modifica los datos de la tabla (tableData) cuando el usuario hace cambios
   const handleChange = (index, fieldName, event) => {
@@ -105,12 +103,12 @@ function Table({ data, functionName }) {
         <tr className="table-row"></tr>
       </div>
 
-      <div className="commit-container">
-        <button className="commit-commit-button" onClick={commitChanges}>
-          Commit
+      <div className="download-container">
+        <button className="download-button" onClick={downloadChanges}>
+          Descargar
         </button>
-        <button className="commit-cancel-button">Cancel</button>
       </div>
+      <Uploader />
     </>
   );
 }

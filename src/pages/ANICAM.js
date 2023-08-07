@@ -4,6 +4,8 @@ import { anicamView } from "../config/supabaseClient";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ANICAM.css";
+import Uploader from "../components/Uploader";
+import { downloadFile } from "../apiRequests";
 
 const ANICAM = () => {
   const [data, setData] = useState(null);
@@ -24,10 +26,8 @@ const ANICAM = () => {
   return (
     <div className="page anicam">
       <h1>DATOS DE ANICAM</h1>
-      <button>
-        <span>GUIA</span>
-      </button>
       <Table data={data} functionName={"update_data_func"} />
+      
     </div>
   );
 };
