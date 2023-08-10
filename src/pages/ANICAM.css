@@ -1,42 +1,24 @@
 button {
-    display: inline-block;
-    border-radius: 5px;
-    background-color: #142331;
-    border: none;
-    color: #faaa44;
-    text-align: center;
-    font-size: 20px;
-    width: 100px;
-    transition: all 0.5s;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    height: 30px;
-    font-weight: 600;
-    cursor: pointer;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid white;
+  cursor: pointer;
+  font-size: 16px;
+  /* font-weight: 600; */
+  color: white;
+  background-color: #142331;
+  width: 100px;
+  transition: all 0.5s;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
 
-button span {
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    cursor: pointer;
-  }
-  
-  button span:after {
-    content: '+';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    left: -20px;
-    transition: 0.5s;
-  }
-  
-  button:hover span {
-    padding-left: 25px;
-  }
-  
-  button:hover span:after {
-    opacity: 1;
-    left: 0;
-  }
+button:hover {
+  opacity: 1;
+  left: 0;
+  background-color: #faaa44;
+}
