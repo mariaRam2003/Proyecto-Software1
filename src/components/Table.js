@@ -102,13 +102,7 @@ function Table({ data, functionName }) {
       <div className="addRow-container">
         <tr className="table-row"></tr>
       </div>
-
-      <div className="download-container">
-        <button className="download-button" onClick={downloadChanges}>
-          Descargar
-        </button>
-      </div>
-      <Uploader />
+      
     </>
   );
 }

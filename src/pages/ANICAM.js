@@ -27,7 +27,17 @@ const ANICAM = () => {
     <div className="page anicam">
       <h1>DATOS DE ANICAM</h1>
       <Table data={data} functionName={"update_data_func"} />
-      
+
+      <button
+        onClick={() => {
+          downloadFile();
+        }}
+      >
+        {" "}
+        Download{" "}
+      </button>
+
+      <Uploader />
     </div>
   );
 };
