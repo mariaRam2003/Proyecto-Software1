@@ -4,7 +4,6 @@ import { insertData } from "../config/controller";
 import Uploader from "./Uploader";
 
 function Table({ data, functionName }) {
-  const dataCopy = JSON.parse(JSON.stringify(data));
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -55,8 +54,6 @@ function Table({ data, functionName }) {
     return commitArray;
   };
 
-  //descarga los datos de la tabla
-  const downloadChanges = () => {};
 
   //modifica los datos de la tabla (tableData) cuando el usuario hace cambios
   const handleChange = (index, fieldName, event) => {
@@ -100,7 +97,7 @@ function Table({ data, functionName }) {
       </div>
 
       <div className="addRow-container">
-        <tr className="table-row"></tr>
+        <div className="table-row"></div>
       </div>
     </>
   );
