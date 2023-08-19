@@ -1,9 +1,12 @@
+/**
+ * Sube un archivo al servidor. (aun no implementado)
+ */
 function uploadFile() {
-  let input = document.querySelector("#excelFile");
-  let file = input.files[0];
+  const input = document.querySelector("#excelFile");
+  const file = input.files[0];
 
-  let formData = new FormData();
-  formData.append("file", file); // Asegúrate de que 'file' es el nombre correcto que espera el backend
+  const formData = new FormData();
+  formData.append("file", file);
 
   fetch("https://softapi-production.up.railway.app/uploadfile", {
     method: "POST",
@@ -16,17 +19,20 @@ function uploadFile() {
     });
 }
 
+/**
+ * Descarga un archivo del servidor. (ya implementado)
+ */
 export function downloadFile() {
   fetch("https://softapi-production.up.railway.app/uploadfiles", {
     method: "GET",
-    mode: "no-cors", // Add the 'mode' option with 'no-cors'
+    mode: "no-cors",
   })
-    .then((response) => response.blob()) // obtienes la respuesta como un blob
+    .then((response) => response.blob())
     .then((blob) => {
-      let url = window.URL.createObjectURL(blob);
-      let a = document.createElement("a");
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
       a.href = url;
-      a.download = "base_datos.xlsx"; // o el nombre de tu archivo
+      a.download = "base_datos.xlsx";
       a.click();
     })
     .catch((error) => {

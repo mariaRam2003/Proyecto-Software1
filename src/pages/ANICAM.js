@@ -1,41 +1,50 @@
-import BasicTable from "../components/BasicTable";
+import React, { useEffect, useState } from "react";
 import Table from "../components/Table";
-import { anicamView } from "../config/supabaseClient";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./ANICAM.css";
 import Uploader from "../components/Uploader";
+import { anicamView } from "../config/supabaseClient";
 import { downloadFile } from "../apiRequests";
+import "./ANICAM.css";
 
+/**
+ * Página para mostrar y administrar los datos de ANICAM.
+ */
 const ANICAM = () => {
+  // Estado para almacenar los datos de ANICAM
   const [data, setData] = useState(null);
 
+  /**
+   * Carga los datos de ANICAM al montar la página.
+   */
   useEffect(() => {
-    anicamView().then((data) => {
-      setData(data);
-      console.log("datos", data);
-    });
+    fetchANICAMData();
   }, []);
 
-  useEffect(() => {
-    if (data && data.length > 0) {
-      console.log(data);
+  /**
+   * Maneja la actualización de datos en la vista ANICAM.
+   */
+  const fetchANICAMData = async () => {
+    try {
+      const anicamData = await anicamView();
+      setData(anicamData);
+      console.log("Datos de ANICAM:", anicamData);
+    } catch (error) {
+      console.error("Error al obtener datos de ANICAM:", error);
     }
-  }, [data]);
+  };
+
+  /**
+   * Descarga un archivo.
+   */
+  const handleDownload = () => {
+    downloadFile();
+  };
 
   return (
     <div className="page anicam">
       <h1>DATOS DE ANICAM</h1>
       <Table data={data} functionName={"update_data_func"} />
 
-      <button
-        onClick={() => {
-          downloadFile();
-        }}
-      >
-        {" "}
-        Download{" "}
-      </button>
+      <button onClick={handleDownload}>Descargar</button>
 
       <Uploader />
     </div>
