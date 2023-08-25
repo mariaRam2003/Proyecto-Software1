@@ -2,27 +2,28 @@ import React, { useState } from "react";
 import "./Uploader.css";
 import { MdCloudUpload, MdDelete } from "react-icons/md";
 import { AiFillFileImage } from "react-icons/ai";
+import { uploadFile } from "../apiRequests"; // Importa la función uploadFile
 
-/**
- * Componente para subir y mostrar imágenes.
- */
 function Uploader() {
-  // Estado para almacenar el archivo seleccionado
   const [selectedFile, setSelectedFile] = useState(null);
 
-  /**
-   * Maneja el cambio de archivo seleccionado.
-   * @param {Object} event - Evento de cambio de archivo.
-   */
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
+    const file = event.target.files[0];
 
-  /**
-   * Limpia el archivo seleccionado.
-   */
-  const handleClearFile = () => {
-    setSelectedFile(null);
+    if (file && file.name.toLowerCase().endsWith(".xlsx")) {
+      setSelectedFile(file);
+
+      uploadFile(file)
+        .then((response) => {
+          console.log("Archivo subido:", response);
+          // Aquí puedes manejar la actualización de la vista si es necesario
+        })
+        .catch((error) => {
+          console.error("Error al subir el archivo:", error);
+        });
+    } else {
+      console.error("Formato de archivo no válido. Sube un archivo .xlsx.");
+    }
   };
 
   return (
@@ -35,7 +36,7 @@ function Uploader() {
             <input
               id="file-input"
               type="file"
-              accept="image/*"
+              accept=".xlsx" // Acepta solo archivos .xlsx
               onChange={handleFileChange}
               style={{ display: "none" }}
             />
@@ -47,7 +48,7 @@ function Uploader() {
             <button
               type="button"
               className="clear-button"
-              onClick={handleClearFile}
+              onClick={() => setSelectedFile(null)}
             >
               <MdDelete className="delete-icon" />
             </button>
