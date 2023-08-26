@@ -6,12 +6,14 @@ import { uploadFile } from "../apiRequests"; // Importa la función uploadFile
 
 function Uploader() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [fileReady, setFileReady] = useState(false); // Nuevo estado
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
     if (file && file.name.toLowerCase().endsWith(".xlsx")) {
       setSelectedFile(file);
+      setFileReady(true); // Habilita el botón para enviar
 
       uploadFile(file)
         .then((response) => {
@@ -22,8 +24,15 @@ function Uploader() {
           console.error("Error al subir el archivo:", error);
         });
     } else {
+      setSelectedFile(null);
+      setFileReady(false); // Deshabilita el botón
       console.error("Formato de archivo no válido. Sube un archivo .xlsx.");
     }
+  };
+
+  const handleSendFile = () => {
+    // Aquí puedes agregar la lógica para enviar el archivo al backend
+    console.log("Enviando archivo al backend...");
   };
 
   return (
@@ -48,15 +57,29 @@ function Uploader() {
             <button
               type="button"
               className="clear-button"
-              onClick={() => setSelectedFile(null)}
+              onClick={() => {
+                setSelectedFile(null);
+                setFileReady(false);
+              }}
             >
               <MdDelete className="delete-icon" />
             </button>
           </div>
+        )}
+
+        {/* Agrega el botón para enviar */}
+        {fileReady && (
+          <button
+            type="button"
+            className="send-button"
+            onClick={handleSendFile}
+          >
+            Enviar Archivo
+          </button>
         )}
       </form>
     </main>
   );
 }
 
-export default Uploader;
+export default Uploader
