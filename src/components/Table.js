@@ -46,25 +46,12 @@ function Table({ data, functionName }) {
     );
   }
 
-  //genera el array de filas con cambios y filas nuevas
-  const makeCommitArray = (initialData, newData) => {
-    const length =
-      initialData.length > newData.length ? initialData.length : newData.length;
-
-    let commitArray = [];
-    for (let row = 0; row < length; row++) {
-      if (!isEqual(initialData[row], newData[row])) {
-        commitArray.push(newData[row]);
-      }
-    }
-    console.log("commit array", commitArray); //borrame
-    return commitArray;
-  };
-
-  //descarga los datos de la tabla
-  const downloadChanges = () => {};
-
-  //modifica los datos de la tabla (tableData) cuando el usuario hace cambios
+  /**
+   * Función para manejar los cambios en los datos de la tabla.
+   * @param {number} index - Índice de la fila afectada.
+   * @param {string} fieldName - Nombre del campo afectado.
+   * @param {Object} event - Evento de cambio de valor.
+   */
   const handleChange = (index, fieldName, event) => {
     const newData = JSON.parse(JSON.stringify(tableData));
     newData[index][fieldName] = event.target.value;
@@ -99,9 +86,9 @@ function Table({ data, functionName }) {
         )}
       </div>
 
-      <div className="addRow-container">
-        <tr className="table-row"></tr>
-      </div>
+      {/* Contenedor para agregar una nueva fila (actualmente vacío) */}
+      {/* <div className="addRow-container">
+      </div> */}
     </>
   );
 }
