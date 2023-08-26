@@ -1,16 +1,19 @@
+import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-// pages
+// Importar las páginas
 import Home from "./pages/Home";
 import ANICAM from "./pages/ANICAM";
 import CUSCAR from "./pages/CUSCAR";
 import VALIDACION from "./pages/validacion";
-import Registro_Anicam from "./pages/Registro_Anicam";
-import Dev from "./pages/Dev";
 
+/**
+ * Componente raíz que define las rutas y la navegación de la aplicación.
+ */
 function App() {
   return (
     <BrowserRouter>
+      {/* Navegación */}
       <nav>
         <Link to="/">
           <img
@@ -22,15 +25,15 @@ function App() {
         <Link to="/ANICAM">ANICAM</Link>
         <Link to="/CUSCAR">CUSCAR</Link>
         <Link to="/validacion">VALIDACION</Link>
-        <Link to="/facturacion">FACTURACION</Link>
+        {/* No hay Link para "/facturacion" todavia */}
       </nav>
+
+      {/* Definición de rutas */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Anicam" element={<ANICAM />} />
+        <Route path="/ANICAM" element={<ANICAM />} />
         <Route path="/CUSCAR" element={<CUSCAR />} />
         <Route path="/validacion" element={<VALIDACION />} />
-        <Route path="/registro-anicam" element={<Registro_Anicam />} />
-        <Route path="/dev" element={<Dev />} />
       </Routes>
     </BrowserRouter>
   );

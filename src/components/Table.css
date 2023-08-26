@@ -1,22 +1,7 @@
-table {
-  border-collapse: collapse;
-  background-color: #5d686b;
-
-  overflow: hidden;
-}
-
-tr {
-  margin: 0;
-  padding: 0;
-}
-
-td {
-  height: 100%;
-}
-
 .table-container {
   overflow-x: auto;
   width: 100%;
+  background-color: #5d686b;
 }
 
 .table-header {

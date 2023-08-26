@@ -1,35 +1,65 @@
-function uploadFile() {
-  let input = document.querySelector("#excelFile");
-  let file = input.files[0];
+  import { useState, useEffect } from "react";
+  import Table from "./components/Table";
 
-  let formData = new FormData();
-  formData.append("file", file); // Asegúrate de que 'file' es el nombre correcto que espera el backend
+  /**
+   * Sube un archivo al servidor. (aun no implementado)
+   */
+  export function uploadFile() {
+    const input = document.querySelector("#excelFile");
+    const file = input.files[0];
 
-  fetch("https://softapi-production.up.railway.app/uploadfile", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
+    const formData = new FormData();
+    formData.append("file", file);
 
-export function downloadFile() {
-  fetch("https://softapi-production.up.railway.app/uploadfiles", {
-    method: "GET",
-    mode: "no-cors", // Add the 'mode' option with 'no-cors'
-  })
-    .then((response) => response.blob()) // obtienes la respuesta como un blob
-    .then((blob) => {
-      let url = window.URL.createObjectURL(blob);
-      let a = document.createElement("a");
-      a.href = url;
-      a.download = "base_datos.xlsx"; // o el nombre de tu archivo
-      a.click();
+    fetch("https://softapi-development.up.railway.app/excel/anicam", {
+      method: "POST",
+      body: formData,
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  /**
+   * Descarga un archivo del servidor. (ya implementado)
+   */
+  export function downloadFile() {
+    fetch("https://softapi-production.up.railway.app/uploadfiles", {
+      method: "GET",
+      mode: "no-cors",
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "base_datos.xlsx";
+        a.click();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  /**
+   * Busca la data para mostrar en views. (ya implementado)
+   */
+  // export function FetchData() {
+  //   const [records, setRecords] = useState([]);
+
+  //   useEffect(() => {
+  //     fetch("https://softapi-development.up.railway.app/views/anicam/")
+  //       .then((response) => response.json())
+  //       .then((data) => setRecords(data))
+  //       .catch((err) => console.log(err));
+  //   }, []);
+      
+  //   return (
+  //     <div>
+  //       <h1>Registros de Supabase</h1>
+  //       <Table data={records} />
+  //     </div>
+  //   );
+  // }
