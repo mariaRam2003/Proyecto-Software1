@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./Uploader.css";
 import { MdCloudUpload, MdDelete } from "react-icons/md";
 import { AiFillFileImage } from "react-icons/ai";
-import { uploadFile } from "../apiRequests"; // Importa la función uploadFile
+import { uploadFile } from "../apiRequests";
 
 function Uploader() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileReady, setFileReady] = useState(false); // Nuevo estado
+  const [error, setError] = useState("");
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -14,6 +15,7 @@ function Uploader() {
     if (file && file.name.toLowerCase().endsWith(".xlsx")) {
       setSelectedFile(file);
       setFileReady(true); // Habilita el botón para enviar
+      setError("");
 
       uploadFile(file)
         .then((response) => {
@@ -26,13 +28,12 @@ function Uploader() {
     } else {
       setSelectedFile(null);
       setFileReady(false); // Deshabilita el botón
-      console.error("Formato de archivo no válido. Sube un archivo .xlsx.");
+      setError("Formato de archivo no válido. Sube un archivo .xlsx.");
     }
   };
 
   const handleSendFile = () => {
-    // Aquí puedes agregar la lógica para enviar el archivo al backend
-    console.log("Enviando archivo al backend...");
+    uploadFile();
   };
 
   return (
@@ -66,6 +67,7 @@ function Uploader() {
             </button>
           </div>
         )}
+        {error && <p className="error-message">{error}</p>}
 
         {/* Agrega el botón para enviar */}
         {fileReady && (
@@ -82,4 +84,4 @@ function Uploader() {
   );
 }
 
-export default Uploader
+export default Uploader;

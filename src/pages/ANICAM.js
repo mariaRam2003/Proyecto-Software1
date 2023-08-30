@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Uploader from "../components/Uploader";
-import { downloadFile } from "../apiRequests";
+import { downloadFile, uploadFile } from "../apiRequests";
 import FetchData from "../components/FetchData";
 import "./ANICAM.css";
 import Table from "../components/Table";
@@ -31,6 +31,13 @@ const ANICAM = () => {
   //     console.error("Error al obtener datos de ANICAM:", error);
   //   }
   // };
+
+  /**
+   * Subir un archivo.
+   */
+  const handleUpload = () => {
+    uploadFile();
+  }
 
   /**
    * Descarga un archivo.
