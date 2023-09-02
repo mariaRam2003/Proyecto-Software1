@@ -13,7 +13,7 @@ export function uploadFile(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  return fetch("https://softapi-production.up.railway.app/excel/anicam", {
+  return fetch(process.env.REACT_APP_API_DOMAIN + "/excel/anicam", {
     method: "POST",
     body: formData,
   })
@@ -32,7 +32,7 @@ export function uploadFile(file) {
  * Descarga un archivo del servidor. (ya implementado)
  */
 export function downloadFile() {
-  fetch("https://softapi-production.up.railway.app/excel/anicam", {
+  fetch(process.env.REACT_APP_API_DOMAIN + "/excel/anicam", {
     method: "GET",
     headers: {
       Accept: "application/json", // Specify the desired content type

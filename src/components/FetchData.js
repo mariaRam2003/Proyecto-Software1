@@ -12,7 +12,7 @@ class FetchData extends Component {
   }
 
   componentDidMount() {
-    fetch("https://softapi-production.up.railway.app/views/anicam/")
+    fetch(process.env.REACT_APP_API_DOMAIN + "/views/anicam/")
       .then((response) => response.json())
       .then((data) => this.setState({ records: data }))
       .catch((err) => console.log(err));
