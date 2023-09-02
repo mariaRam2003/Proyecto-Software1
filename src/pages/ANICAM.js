@@ -37,7 +37,7 @@ const ANICAM = () => {
    */
   const handleUpload = () => {
     uploadFile();
-  }
+  };
 
   /**
    * Descarga un archivo.
@@ -49,7 +49,7 @@ const ANICAM = () => {
   return (
     <div className="page anicam">
       <h1>DATOS DE ANICAM</h1>
-      <FetchData/>
+      <FetchData />
       <button onClick={handleDownload}>Descargar</button>
       <Uploader />
     </div>

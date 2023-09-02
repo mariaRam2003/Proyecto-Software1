@@ -12,7 +12,7 @@ class FetchData extends Component {
   }
 
   componentDidMount() {
-    fetch("https://softapi-development.up.railway.app/views/anicam/")
+    fetch("https://softapi-production.up.railway.app/views/anicam/")
       .then((response) => response.json())
       .then((data) => this.setState({ records: data }))
       .catch((err) => console.log(err));
@@ -60,7 +60,7 @@ class FetchData extends Component {
                     onClick={() => this.handleCellClick(index, key)}
                   >
                     {editingIndex === index && editedFieldName === key ? (
-                      <input 
+                      <input
                         className="cell"
                         type="text"
                         value={value}

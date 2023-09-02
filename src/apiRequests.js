@@ -1,24 +1,30 @@
 import { useState, useEffect } from "react";
 import Table from "./components/Table";
+import { resolve, reject } from "promise";
 
 /**
- * Sube un archivo al servidor. (aun no implementado)
+ * Sube un archivo al servidor. (ya implementado)
  */
-export function uploadFile() {
-  const input = document.querySelector("#excelFile");
-  const file = input.files[0];
+export function uploadFile(file) {
+  if (!file) {
+    return Promise.reject("No se ha seleccionado ningún archivo.");
+  }
 
   const formData = new FormData();
   formData.append("file", file);
 
-  fetch("https://softapi-development.up.railway.app/excel/anicam", {
+  return fetch("https://softapi-production.up.railway.app/excel/anicam", {
     method: "POST",
     body: formData,
   })
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      console.log(data);
+      return data; // Devuelve los datos recibidos
+    })
     .catch((error) => {
       console.error("Error:", error);
+      throw error; // Lanza una excepción en caso de error
     });
 }
 
@@ -26,7 +32,7 @@ export function uploadFile() {
  * Descarga un archivo del servidor. (ya implementado)
  */
 export function downloadFile() {
-  fetch("https://softapi-development.up.railway.app/excel/anicam", {
+  fetch("https://softapi-production.up.railway.app/excel/anicam", {
     method: "GET",
     headers: {
       Accept: "application/json", // Specify the desired content type

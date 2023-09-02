@@ -32,19 +32,19 @@ function Uploader() {
     }
   };
 
-  const handleSendFile = () => {
-    uploadFile();
+  const handleSendFile = (file) => {
+    uploadFile(file);
   };
 
   return (
     <main>
       <form className="uploader-container">
         {!selectedFile ? (
-          <label htmlFor="file-input" className="file-input-label">
+          <label htmlFor="excelFile" className="file-input-label">
             <MdCloudUpload className="upload-icon" />
             Subir archivo
             <input
-              id="file-input"
+              id="excelFile"
               type="file"
               accept=".xlsx" // Acepta solo archivos .xlsx
               onChange={handleFileChange}
