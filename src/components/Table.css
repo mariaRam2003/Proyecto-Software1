@@ -1,16 +1,16 @@
 .table-container {
   overflow-x: auto;
   width: 100%;
-  background-color: #5d686b;
+  background-color: #000814;
 }
 
 .table-header {
   /*styling*/
-  background-color: #15202b;
+  background-color: #000814;
   color: white;
 
   /*font*/
-  font-weight: 400;
+  font-weight: 300;
   font-size: 15px;
 
   /*dimensions*/
@@ -30,7 +30,7 @@
   padding: 0;
   padding-left: 10px;
 
-  background-color: #1d2d3c;
+  background-color: #001D3D;
   color: white;
   transition: background-color 0.2s ease-in-out;
 }

@@ -1,56 +1,140 @@
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
 
-  :root {
-    --blue1: #15202b;
-    --blue2: #081827;
-    --font-family: 'Poppins', sans-serif;
-  }
-  h1 {
-    font-weight: 600 !important; 
-    font-size: 40px !important;
-  }
-  h2,h3 {
-    margin: 0;
-  }
+:root {
+  --blue1: black;
+  --blue2: #081827;
+  --font-family: "Poppins", sans-serif;
+}
+h1 {
+  font-weight: 600 !important;
+  font-size: 40px !important;
+}
+h2,
+h3 {
+  margin: 0;
+}
 
-  body {
-    margin: 0;
-    color: #ffff;
-    font-family: 'Poppins';
-    background: var(--blue2);
-    background-image: url("img/fondoHome.png");
-    background-size: 87%;
-    background-repeat: no-repeat;
-    background-position-x: 50px;
-  }
-  nav {
-    background: var(--blue1);
-    align-items: center;
-    display: flex;
-    text-align: center;
-  }
-  nav img {
-    width: 70px;
-    height: auto;
-    margin-right: 10px;
-  }
+body {
+  margin: 0;
+  color: #ffff;
+  font-family: "Poppins";
+  background: var(--blue2);
+  background-image: url("img/fondoHome2.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+nav {
+  background: var(--blue1);
+  align-items: center;
+  display: flex;
+  text-align: center;
+  font-weight: 500;
+}
+nav img {
+  width: 70px;
+  height: auto;
+  margin-right: 10px;
+}
 
-  nav a {
-    color: #f2f2f2;
-    margin-left: 20px;
-    padding: 5px;
-    display: inline-block;
-    text-decoration: none;
-    transition: background 0.5s linear;
-    border-radius: 5px;
-  }
+nav a {
+  color: #f2f2f2;
+  margin-left: 20px;
+  padding: 5px;
+  display: inline-block;
+  text-decoration: none;
+  transition: background 0.5s linear;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
 
-  nav a:hover{
-    background: #0081c5;
-  }
+nav a:hover {
+  background: #00296B;
+}
 
-  .page {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-  }
+.page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+nav button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-top: 0;
+  justify-content: start;
+  width: 40px;
+  margin-left: 56%;
+  display: inline-block;
+}
+
+nav button:hover {
+  background-color: transparent;
+  color: #00296B;
+}
+
+/* Estilo para el menú aside */
+aside {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -250;
+  background: #034177; /* Puedes personalizar el fondo */
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+  box-shadow: 1px 5px 10px black;
+}
+
+/* Estilo cuando el menú está abierto */
+aside.menu-open {
+  right: 0;
+}
+
+aside.menu-closed {
+  right: -250px;
+}
+
+/* Estilo para el botón de cerrar el menú */
+aside button {
+  display: block;
+  margin-top: 10%;
+  margin-left: 30%;
+  font-size: 16px;
+  border: 0;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #034177;
+}
+
+aside button:hover {
+  background-color: #ffffff;
+  color: #11101d;
+}
+
+/* Agregar más estilos según tus necesidades */
+aside li {
+  color: #ffffff;
+  display: block;
+  text-decoration: none;
+  padding: 9px 6px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background 0.3s linear;
+  cursor: pointer;
+  margin-right: 40px;
+}
+aside li:hover {
+  background: #ffffff;
+  color: #11101d;
+}
+
+.MuiBackdrop-root {
+  backdrop-filter: blur(4px); 
+}

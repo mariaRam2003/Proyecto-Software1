@@ -9,7 +9,7 @@ button {
   font-size: 16px;
   /* font-weight: 600; */
   color: white;
-  background-color: #142331;
+  background-color: #001d3d;
   width: 100px;
   transition: all 0.5s;
   margin-bottom: 10px;
@@ -20,5 +20,6 @@ button {
 button:hover {
   opacity: 1;
   left: 0;
-  background-color: #faaa44;
+  background-color: white;
+  color: #001d3d;
 }
