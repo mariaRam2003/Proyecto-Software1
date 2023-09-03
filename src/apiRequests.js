@@ -1,7 +1,3 @@
-import { useState, useEffect } from "react";
-import Table from "./components/Table";
-import { resolve, reject } from "promise";
-
 /**
  * Sube un archivo al servidor. (ya implementado)
  */
@@ -50,24 +46,3 @@ export function downloadFile() {
       console.error("Error:", error);
     });
 }
-
-/**
- * Busca la data para mostrar en views. (ya implementado)
- */
-// export function FetchData() {
-//   const [records, setRecords] = useState([]);
-
-//   useEffect(() => {
-//     fetch("https://softapi-development.up.railway.app/views/anicam/")
-//       .then((response) => response.json())
-//       .then((data) => setRecords(data))
-//       .catch((err) => console.log(err));
-//   }, []);
-
-//   return (
-//     <div>
-//       <h1>Registros de Supabase</h1>
-//       <Table data={records} />
-//     </div>
-//   );
-// }
