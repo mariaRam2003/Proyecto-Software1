@@ -2,12 +2,25 @@
   overflow-x: auto;
   width: 100%;
   background-color: #000814;
+  border-radius: 10px;
+}
+.table-container::-webkit-scrollbar {
+  width: 100px; /* Ancho del scrollbar para navegadores basados en Webkit (como Opera GX) */
+  
+}
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #041e36; /* Color del thumb (barra de desplazamiento) */
+  border-radius: 6px; /* Borde redondeado del thumb */
+}
+.table-container::-webkit-scrollbar-track {
+  background-color: #000814; /* Color de fondo del scrollbar */
 }
 
 .table-header {
   /*styling*/
   background-color: #000814;
   color: white;
+  
 
   /*font*/
   font-weight: 300;

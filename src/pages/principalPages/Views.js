@@ -10,7 +10,8 @@ import "../styles/Views.css";
 const Views = () => {
   return (
     <div className="page home">
-      <h1>VIEW DATA:</h1>
+      <h1>VIEW DATA</h1>
+      <p>Aqui puedes visualizar todos los datos de distintas áreas.</p>
       <div className="card-container">
         <Link to="/ANICAM" className="card">
           <MarkunreadMailboxTwoToneIcon
