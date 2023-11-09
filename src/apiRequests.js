@@ -46,3 +46,51 @@ export function downloadFile() {
       console.error("Error:", error);
     });
 }
+
+/**
+ * LOGIN
+ */
+export function login(email, password) {
+  return fetch(process.env.REACT_APP_API_DOMAIN + "/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }), // body data type must match "Content-Type" header
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      return data; // Devuelve los datos recibidos
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      throw error; // Lanza una excepción en caso de error
+    });
+}
+
+/**
+ * SIGNUP
+ */
+export function signup(email, password) {
+  if (!email || !password) {
+    return Promise.reject("Email y password son requeridos.");
+  }
+
+  return fetch(process.env.REACT_APP_API_DOMAIN + "/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }), // Include the email and password in the request body
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      return data; // Devuelve los datos recibidos
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      throw error; // Lanza una excepción en caso de error
+    });
+}

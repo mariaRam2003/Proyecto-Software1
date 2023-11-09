@@ -1,0 +1,93 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login_area {
+  margin-top: 10%;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  border-radius: 10px;
+  margin: 0 auto;
+  background-color: #001d3d;
+  box-shadow: 5px 5px 10px #333;
+  .title-holder {
+    display: flex;
+    .logo-image {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .text-box {
+    position: relative;
+    margin-top: 15px;
+  }
+  .text-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
+  }
+  .text-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: white;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  .text-box input:focus ~ label,
+  .text-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color:white;
+    font-size: 12px;
+  }
+}
+
+.Button-Login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 50px;
+  border-radius: 8px;
+  border: 2px solid white;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  background-color: #001d3d;
+  width: 70px;
+  transition: all 0.5s;
+  text-decoration: none;
+}
+
+.Button-Login:hover {
+  opacity: 1;
+  left: 0;
+  background-color: white;
+  color: #001d3d;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 90px;
+}
+
+.Link-registro {
+    color: white;
+    font-size: 14px;
+}

@@ -6,8 +6,8 @@
   --font-family: "Poppins", sans-serif;
 }
 h1 {
-  font-weight: 600 !important;
-  font-size: 40px !important;
+  font-weight: 600;
+  font-size: 40px;
 }
 h2,
 h3 {
@@ -23,6 +23,7 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
 nav {
   background: var(--blue1);
   align-items: center;
@@ -49,7 +50,7 @@ nav a {
 }
 
 nav a:hover {
-  background: #00296B;
+  background: #00296b;
 }
 
 .page {
@@ -73,7 +74,7 @@ nav button {
 
 nav button:hover {
   background-color: transparent;
-  color: #00296B;
+  color: #00296b;
 }
 
 /* Estilo para el menú aside */
@@ -136,5 +137,6 @@ aside li:hover {
 }
 
 .MuiBackdrop-root {
-  backdrop-filter: blur(4px); 
+  backdrop-filter: blur(4px);
 }
+

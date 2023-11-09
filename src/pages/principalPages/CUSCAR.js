@@ -1,19 +1,26 @@
-import { useEffect, useState } from "react";
-import Table from "../../components/Table";
+import React, { useState } from "react";
+import Uploader from "../../components/Uploader";
+import { downloadFile, uploadFile } from "../../apiRequests";
+import FetchDataCuscar from "../../components/FetchDataCuscar";
+import "../styles/Pages.css";
 
 const CUSCAR = () => {
-  const [data, setData] = useState(null);
-
+  /**
+   * Descarga un archivo.
+   */
+  const handleDownload = () => {
+    downloadFile();
+  };
 
   return (
-    <>
-      <div className="page cuscar">
-        <h1>CUSCAR </h1>
-      </div>
-      <div className="page">
-        <Table data={data} />
-      </div>
-    </>
+    <div className="page anicam">
+      <h1>DATOS DE CUSCAR</h1>
+      <FetchDataCuscar />
+      <button className="Download-button" onClick={handleDownload}>
+        Descargar
+      </button>
+      <Uploader />
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@ import "../styles/Views.css";
 
 const Views = () => {
   return (
-    <div className="page home">
+    <div className="page views">
       <h1>VIEW DATA</h1>
       <p>Aqui puedes visualizar todos los datos de distintas áreas.</p>
       <div className="card-container">

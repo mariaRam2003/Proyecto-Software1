@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Uploader from "../../components/Uploader";
 import { downloadFile, uploadFile } from "../../apiRequests";
-import FetchData from "../../components/FetchData";
+import FetchDataFinance from "../../components/FetchDataFinance";
 import "../styles/Pages.css";
 
 /**
@@ -9,31 +9,19 @@ import "../styles/Pages.css";
  */
 const FINANCE = () => {
   /**
-   * COMENTADO POR EL MOMENTO PARA NO GASTAR LLAMADAS AL API
+   * Descarga un archivo.
    */
-
-  // // Estado para almacenar los datos de ANICAM
-  // const [data, setData] = useState(null);
-
-  // /**
-  //  * Subir un archivo.
-  //  */
-  // const handleUpload = () => {
-  //   uploadFile();
-  // };
-
-  // /**
-  //  * Descarga un archivo.
-  //  */
-  // const handleDownload = () => {
-  //   downloadFile();
-  // };
+  const handleDownload = () => {
+    downloadFile();
+  };
 
   return (
     <div className="page anicam">
-      <h1>DATOS DE ADMINISTACION Y FINANZAS</h1>
-      {/* <FetchData /> */}
-      {/* <button onClick={handleDownload}>Descargar</button> */}
+      <h1>DATOS DE ADMINISTRACIÓN Y FINANZAS</h1>
+      <FetchDataFinance />
+      <button className="Download-button" onClick={handleDownload}>
+        Descargar
+      </button>
       <Uploader />
     </div>
   );

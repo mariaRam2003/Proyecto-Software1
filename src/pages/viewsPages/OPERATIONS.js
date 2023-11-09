@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Uploader from "../../components/Uploader";
 import { downloadFile, uploadFile } from "../../apiRequests";
-import FetchData from "../../components/FetchData";
+import FetchDataAnicam from "../../components/FetchDataAnicam";
 import "../styles/Pages.css";
 
 /**

@@ -1,4 +1,4 @@
-button {
+.Download-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@ button {
   margin-top: 20px;
 }
 
-button:hover {
+.Download-button:hover {
   opacity: 1;
   left: 0;
   background-color: white;

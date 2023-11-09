@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Table.css";
 
-class FetchData extends Component {
+class FetchDataCuscar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class FetchData extends Component {
   }
 
   componentDidMount() {
-    fetch(process.env.REACT_APP_API_DOMAIN + "/views/anicam/")
+    fetch(process.env.REACT_APP_API_DOMAIN + "/views/cuscar/")
       .then((response) => response.json())
       .then((data) => this.setState({ records: data }))
       .catch((err) => console.log(err));
@@ -87,4 +87,4 @@ class FetchData extends Component {
   }
 }
 
-export default FetchData;
+export default FetchDataCuscar;
