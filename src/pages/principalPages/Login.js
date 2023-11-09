@@ -34,7 +34,7 @@ const Login = () => {
         // Autenticación exitosa, puedes redirigir al usuario a la página de inicio
         const responseData = await response.json();
         navigate({
-          pathname: "/VIEWS",
+          pathname: "/HOME",
           search: createSearchParams({
             id: responseData.id,
           }).toString(),

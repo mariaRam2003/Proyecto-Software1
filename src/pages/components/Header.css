@@ -1,0 +1,38 @@
+/* Estilo del encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.91); 
+  padding: 2px 20Px;
+  color: #ffffff;
+}
+.header a {
+  color: #f2f2f2;
+  margin-left: 20px;
+  padding: 5px;
+  text-decoration: none;
+  transition: background 0.5s linear;
+  border-radius: 5px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/* Estilo del logo */
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+/* Estilo de los enlaces de navegación */
+.navigation-links Link{
+  text-decoration: none;
+  color: #ffffff;
+  margin-right: 100px;
+  align-content: start;
+}
+
+
+.navigation-links a:hover {
+  background: #00296b;
+}

@@ -24,57 +24,10 @@ body {
   background-repeat: no-repeat;
 }
 
-nav {
-  background: var(--blue1);
-  align-items: center;
-  display: flex;
-  text-align: center;
-  font-weight: 500;
-}
-nav img {
-  width: 70px;
-  height: auto;
-  margin-right: 10px;
-}
-
-nav a {
-  color: #f2f2f2;
-  margin-left: 20px;
-  padding: 5px;
-  display: inline-block;
-  text-decoration: none;
-  transition: background 0.5s linear;
-  border-radius: 5px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-nav a:hover {
-  background: #00296b;
-}
-
 .page {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
-}
-
-nav button {
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  margin-bottom: 0;
-  margin-right: 0;
-  margin-top: 0;
-  justify-content: start;
-  width: 40px;
-  margin-left: 56%;
-  display: inline-block;
-}
-
-nav button:hover {
-  background-color: transparent;
-  color: #00296b;
 }
 
 /* Estilo para el menú aside */
