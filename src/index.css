@@ -19,7 +19,8 @@ body {
   color: #ffff;
   font-family: "Poppins";
   background: var(--blue2);
-  background-image: url("img/fondoHome2.png");
+  /* background-image: url("img/bk1.jpeg"); */
+  background-color: #000814;
   background-size: 100%;
   background-repeat: no-repeat;
 }

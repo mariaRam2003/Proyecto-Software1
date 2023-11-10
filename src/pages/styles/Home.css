@@ -1,0 +1,99 @@
+/* Home.css */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
+
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide el contenido en dos columnas */
+  align-items: center;
+  height: 100vh;
+  background: #001329;
+}
+.content {
+  padding: 30px;
+  padding-top: 0px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  margin-right: 100px;
+  animation: fadeAndMoveRight 1s ease-in-out;
+}
+.content-right {
+  animation: fadeAndMoveLeft 1s ease-in-out;
+}
+
+.title-container {
+  background: #001d3d;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+}
+.title1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 100px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  padding: 1px;
+  color: white;
+}
+
+.title p {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 15px 20px;
+  background: #00296b;
+  color: white;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, #00296b 0%, #001d3d 100%);
+  transform: scale(1.05);
+}
+
+.atajos {
+  font-size: 1.4rem !important;
+  color: #777 !important;
+  font-weight: 500 !important;
+}
+
+@keyframes fadeAndMoveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeAndMoveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
