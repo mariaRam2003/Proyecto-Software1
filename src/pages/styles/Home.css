@@ -6,14 +6,17 @@
   grid-template-columns: 1fr 1fr; /* Divide el contenido en dos columnas */
   align-items: center;
   height: 100vh;
-  background: #001329;
+  background-image: url("../../img/bk8.jpg");
+  background-size:45cm; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+  background-position:left; /* Centra la imagen en el fondo */
 }
 .content {
   padding: 30px;
   padding-top: 0px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 10px;
   margin-right: 100px;
+  margin-top: -40px;
   animation: fadeAndMoveRight 1s ease-in-out;
 }
 .content-right {
@@ -64,6 +67,7 @@
   padding: 15px 20px;
   background: #00296b;
   color: white;
+  border-radius: 10px;
 }
 
 .button:hover {
@@ -72,9 +76,8 @@
 }
 
 .atajos {
-  font-size: 1.4rem !important;
-  color: #777 !important;
-  font-weight: 500 !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
 }
 
 @keyframes fadeAndMoveLeft {

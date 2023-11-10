@@ -12,9 +12,10 @@ import Home from "./pages/principalPages/Home";
 import LOGIN from "./pages/principalPages/Login";
 import SINGUP from "./pages/principalPages/SingUp";
 import VIEWS from "./pages/principalPages/Views";
-import FACTURACION from "./pages/principalPages/facturacion";
+import PRECARGA from "./pages/principalPages/Precarga";
+import BUSQUEDA from "./pages/principalPages/Busqueda";
 import CUSCAR from "./pages/principalPages/CUSCAR";
-import VALIDACION from "./pages/principalPages/validacion";
+import USUARIOS from "./pages/principalPages/Usuarios";
 // Importar las paginas de views
 import ANICAM from "./pages/viewsPages/ANICAM";
 import CX from "./pages/viewsPages/CX";
@@ -36,10 +37,11 @@ function App() {
         <Route path="/HOME" element={<Home />} />
         <Route path="/SINGUP" element={<SINGUP />} />
         <Route path="/VIEWS" element={<VIEWS />} />
+        <Route path="/PRECARGA" element={<PRECARGA />} />
         <Route path="/ANICAM" element={<ANICAM />} />
         <Route path="/CUSCAR" element={<CUSCAR />} />
-        <Route path="/validacion" element={<VALIDACION />} />
-        <Route path="/facturacion" element={<FACTURACION />} />
+        <Route path="/USUARIOS" element={<USUARIOS />} />
+        <Route path="/BUSQUEDA" element={<BUSQUEDA />} />
         <Route path="/CX" element={<CX />} />
         <Route path="/OPERATIONS" element={<OPERATIONS />} />
         <Route path="/FINANCE" element={<FINANCE />} />

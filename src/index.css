@@ -18,9 +18,8 @@ body {
   margin: 0;
   color: #ffff;
   font-family: "Poppins";
-  background: var(--blue2);
-  /* background-image: url("img/bk1.jpeg"); */
-  background-color: #000814;
+  background-image: url("./img/site-bg.jpg");
+  /* background-color: #000814; */
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -93,4 +92,3 @@ aside li:hover {
 .MuiBackdrop-root {
   backdrop-filter: blur(4px);
 }
-

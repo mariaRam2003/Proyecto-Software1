@@ -1,0 +1,73 @@
+/* Precarga.css */
+
+.UniversalForm {
+  background: rgba(255, 255, 255, 0.07); 
+  border-radius: 10px;
+  padding: 20px;
+  padding-right: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group {
+  width: 48%;
+  margin-bottom: 15px;
+}
+
+.universal-label {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: white;
+  width: 100%;
+}
+
+.universal-input {
+  width: calc(100% - 20px); 
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border-radius: 5px;
+}
+
+.universal-btn {
+  width: 100%;
+  align-items: center;
+  background: #00296b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.universal-btn:hover {
+  background: #001d3d;
+}
+.success-message {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: auto;
+}
+
+.error-message {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-left: auto;
+}
+
+.page-title {
+  background-color: #001d3d;
+  padding-left: 200px;
+  margin-left: -200px;
+  margin-right: 900px;
+}

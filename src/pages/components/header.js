@@ -51,10 +51,11 @@ const Header = () => {
           <img src={logo} alt="Logo" />
         </Link>
         <div className="navigation-links">
-          <Link to="/VIEWS">VIEWS</Link>
-          <Link to="/CUSCAR">CUSCAR</Link>
-          <Link to="/validacion">VALIDACION</Link>
-          <Link to="/facturacion">FACTURACION</Link>
+          <Link to="/HOME">HOME</Link>
+          <Link to="/PRECARGA">PRECARGA</Link>
+          <Link to="/VIEWS">DATOS</Link>
+          <Link to="/USUARIOS">USUARIOS</Link>
+          <Link to="/BUSQUEDA">BUSQUEDA</Link>
         </div>
         <div>
           <IconButton onClick={openDrawer}>
@@ -93,7 +94,7 @@ const Header = () => {
         <Typography variant="h6" gutterBottom sx={{ padding: "10px" }}>
           Bienvenid@
         </Typography>
-        
+
         <Button variant="contained" onClick={handleLogout}>
           Cerrar Sesión
         </Button>

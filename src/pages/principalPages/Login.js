@@ -91,7 +91,7 @@ const Login = () => {
         <div className="register-link">
           <p>
             No tienes una cuenta aún?{" "}
-            <Link to="/SINGUP" className="Link-registro">
+            <Link to="/SINGUP" className="registrate-btn">
               Regístrate
             </Link>
           </p>

@@ -15,7 +15,7 @@ const Home = () => {
         <div className="content-right">
           <h1 className="title1">Ship Smart.</h1>
           <ConnectingAirportsIcon
-            sx={{ fontSize: "300px", marginLeft: "165px" }}
+            sx={{ fontSize: "300px", marginLeft: "180px" }}
           />
         </div>
         <div className="content">
@@ -27,13 +27,13 @@ const Home = () => {
             <p className="atajos">Atajos:</p>
           </div>
           <div className="buttons">
-            <a href="/HOME" className="button">
+            <a href="/PRECARGA" className="button">
               <div className="icon">
                 <DriveFolderUploadIcon sx={{ fontSize: "50px" }} />
               </div>
               Precarga
             </a>
-            <a href="/HOME" className="button">
+            <a href="/USUARIOS" className="button">
               <div className="icon">
                 <GroupIcon sx={{ fontSize: "50px" }} />
               </div>

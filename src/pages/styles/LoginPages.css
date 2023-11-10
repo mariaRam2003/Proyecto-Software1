@@ -3,6 +3,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: -20px;
+  background-image: url("../../img/bk7.jpg"); /* Cambia la imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño para cubrir toda la página */
+  background-position: center; /* Centra la imagen */
+  height: 100vh; /* Ajusta la altura al 100% de la ventana */
 }
 
 .login_area {
@@ -14,7 +21,7 @@
   padding: 15px 35px 45px;
   border-radius: 10px;
   margin: 0 auto;
-  background-color: #001d3d;
+  background-color: black;
   box-shadow: 5px 5px 10px #333;
   .title-holder {
     display: flex;
@@ -67,7 +74,7 @@
   cursor: pointer;
   font-size: 16px;
   color: white;
-  background-color: #001d3d;
+  background-color: black;
   width: 70px;
   transition: all 0.5s;
   text-decoration: none;
@@ -77,7 +84,7 @@
   opacity: 1;
   left: 0;
   background-color: white;
-  color: #001d3d;
+  color: black;
 }
 
 .error-message {
@@ -87,7 +94,13 @@
     margin-left: 90px;
 }
 
-.Link-registro {
+.register-link {
     color: white;
     font-size: 14px;
+}
+.registrate-btn {
+    color: white;
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: bold;
 }
