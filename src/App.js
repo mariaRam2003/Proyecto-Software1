@@ -19,7 +19,7 @@ import USUARIOS from "./pages/principalPages/Usuarios";
 // Importar las paginas de views
 import FiscalData from "./pages/viewsPages/FiscalData";
 import ANICAM from "./pages/viewsPages/ANICAM";
-import CX from "./pages/viewsPages/CX";
+import IMPUESTO from "./pages/viewsPages/IMPUESTO";
 import OPERATIONS from "./pages/viewsPages/OPERATIONS";
 import FINANCE from "./pages/viewsPages/FINANCE";
 
@@ -42,7 +42,7 @@ function App() {
         <Route path="/CUSCAR" element={<CUSCAR />} />
         <Route path="/USUARIOS" element={<USUARIOS />} />
         <Route path="/BUSQUEDA" element={<BUSQUEDA />} />
-        <Route path="/CX" element={<CX />} />
+        <Route path="/IMPUESTO" element={<IMPUESTO />} />
         <Route path="/OPERATIONS" element={<OPERATIONS />} />
         <Route path="/FINANCE" element={<FINANCE />} />
       </Routes>

@@ -9,24 +9,29 @@ const FiscalData = () => {
 
   const camposFormulario = [
     {
-      label: "Id Impuesto",
-      name: "id_impuesto",
+      label: "Porcentaje DAI",
+      name: "dai_porcentaje",
       type: "number",
-      required: true,
-    },
-    {
-      label: "Id Paquete",
-      name: "paquete_id",
-      type: "character varying",
       required: true,
     },
     {
       label: "Poliza",
       name: "poliza",
-      type: "character varying",
+      type: "text",
       required: true,
     },
-    // Agregar más campos si es necesario
+    {
+      label: "Partida",
+      name: "partida",
+      type: "text",
+      required: true,
+    },
+    {
+      label: "Consignatario",
+      name: "consignatorio",
+      type: "text",
+      required: true,
+    },
   ];
 
   // SI ES NECESARIO VALIDAR FECHAS, INTS, O STRINGS
@@ -51,7 +56,7 @@ const FiscalData = () => {
       <div>
         <div className="page Facturacion">
           <div className="page-title">
-            <h1>Datos Fiscales</h1>
+            <h1>Impuesto</h1>
           </div>
           <p>
             Aqui puedes realizar la precarga de datos Fiscales. Completa todos

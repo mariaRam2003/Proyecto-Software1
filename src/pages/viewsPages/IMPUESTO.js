@@ -7,7 +7,7 @@ import "../styles/Pages.css";
 /**
  * Página para mostrar y administrar los datos de ANICAM.
  */
-const CX = () => {
+const IMPUESTO = () => {
   /**
    * COMENTADO POR EL MOMENTO PARA NO GASTAR LLAMADAS AL API
    */
@@ -39,4 +39,4 @@ const CX = () => {
   );
 };
 
-export default CX;
+export default IMPUESTO;

@@ -18,8 +18,8 @@ const Views = () => {
     <>
       <Header />
       <div className="page views">
-        <h1 className="views-title">VIEW DATA</h1>
-        <p>Visualiza y modifica datos de distintas áreas de forma ordenada</p>
+        <h1 className="views-title">DATOS</h1>
+        <p>Visualiza y modifica datos de distintas áreas de forma ordenada.</p>
         <Grid container spacing={2} className="card-container">
           <Grid item xs={12} sm={6} md={4}>
             <Card component={Link} to="/FISCALDATA" className="card">

@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import "../styles/Usuarios.css";
 
 const USUARIOS = () => {
-  // DUDA
+  
   const getTokenFromCookie = () => {
     const cookieArray = document.cookie.split("; ");
     let token = null;

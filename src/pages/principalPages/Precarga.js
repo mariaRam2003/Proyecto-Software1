@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Formulario from "../components/Formulario";
+import FormularioWithoutBtn from "../components/Fomulario-btn";
+import "../styles/Pages.css";
 
 const PRECARGA = () => {
+  const getTokenFromCookie = () => {
+    const cookieArray = document.cookie.split("; ");
+    let token = null;
+
+    for (let i = 0; i < cookieArray.length; i++) {
+      const cookie = cookieArray[i];
+      if (cookie.startsWith("token=")) {
+        token = cookie.split("=")[1];
+        break;
+      }
+    }
+
+    return token;
+  };
+
   const [successMessage, setSuccessMessage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const camposFormulario = [
     {
-      label: "Id Consolidado",
-      name: "Id_consolidado",
-      type: "number",
-      required: true,
-    },
-    {
       label: "Descripción",
       name: "descripcion",
-      type: "text",
-      required: true,
-    },
-    {
-      label: "Fecha (YYYY-MM-DD)",
-      name: "fecha",
       type: "text",
       required: true,
     },
@@ -30,12 +35,6 @@ const PRECARGA = () => {
       name: "transportista",
       type: "text",
       required: true,
-    },
-    {
-      label: "Id Paquete",
-      name: "id_paquete",
-      type: "text",
-      required: false, // Puedes cambiar a true si es obligatorio
     },
     {
       label: "Factura",
@@ -133,7 +132,6 @@ const PRECARGA = () => {
       type: "text",
       required: false,
     },
-    // Agrega más campos según sea necesario
   ];
 
   const validateDate = (date) => {
@@ -152,43 +150,79 @@ const PRECARGA = () => {
 
   const handleSubmit = (formData) => {
     // Validación y lógica específica del API
+    const errorMessages = [];
+    console.log(formData);
+
     for (const field of camposFormulario) {
       const { name, type, required } = field;
       const value = formData[name];
 
       if (required && !value) {
-        setErrorMessage(`Por favor, llena el campo ${field.label}.`);
-        return; // No se envía la solicitud si hay campos vacíos obligatorios
+        errorMessages.push(`Por favor, llena el campo ${field.label}.`);
       }
 
       if (type === "number" && !isInteger(value)) {
-        setErrorMessage(`El campo ${field.label} debe ser un número entero.`);
-        return; // No se envía la solicitud si el número no es entero
+        errorMessages.push(
+          `El campo ${field.label} debe ser un número entero.`
+        );
       }
 
       if (type === "string" && !isString(value)) {
-        setErrorMessage(
+        errorMessages.push(
           `El campo ${field.label} debe ser una cadena de texto.`
         );
-        return; // No se envía la solicitud si la cadena no es de texto
       }
+    }
 
-      // Puedes agregar más validaciones según sea necesario
+    // Mostrar mensajes de error acumulados
+    if (errorMessages.length > 0) {
+      setErrorMessage(errorMessages.join(" "));
+      return;
     }
 
     // Validar el formato de fecha
-    if (!validateDate(formData.fecha)) {
+    if (!validateDate(formData.fecha_orden)) {
       setErrorMessage("Ingresa una fecha válida en formato YYYY-MM-DD.");
-      return; // No se envía la solicitud si la fecha no cumple con el formato
+      return;
     }
 
-    // Puedes realizar la lógica de envío al API aquí
-    fetch("http://3.88.218.62/precarga", {
+    // API: Enviar solicitud POST
+    const token = getTokenFromCookie();
+
+    const apiData = {
+      paquetes: [
+        {
+          factura: formData.factura,
+          fecha_orden: formData.fecha_orden,
+          contenido: formData.contenido,
+          descripcion: formData.descripcion,
+          alto: formData.alto,
+          ancho: formData.ancho,
+          largo: formData.largo,
+          peso_libras: formData.peso_libras,
+          peso_volumetrico: formData.peso_volumetrico,
+          valor_producto_dolar: formData.valor_producto_dolar,
+          unidades: formData.unidades,
+          direccion_casillero: formData.direccion_casillero,
+          empresa_remitente: formData.empresa_remitente,
+          cliente_nombre: formData.cliente_nombre,
+          cliente_telefono: formData.cliente_telefono,
+          cliente_email: formData.cliente_email,
+          cliente_direccion: formData.cliente_direccion,
+        },
+      ],
+      consolidado: {
+        descripcion: formData.descripcion,
+        transportista: formData.transportista,
+      },
+    };
+
+    fetch(process.env.REACT_APP_API_DOMAIN + `/precarga?token=${token}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(apiData),
     })
       .then((response) => {
         if (response.status === 200) {
@@ -196,6 +230,9 @@ const PRECARGA = () => {
           setSuccessMessage("Los datos han sido cargados exitosamente");
         } else if (response.status === 422) {
           console.log("Error de validación");
+        } else if (response.status === 201) {
+          console.log("Solicitud exitosa");
+          setSuccessMessage("Los datos han sido cargados exitosamente");
         } else {
           console.log("Error inesperado");
         }
@@ -209,11 +246,16 @@ const PRECARGA = () => {
     <>
       <Header />
       <div>
-        <div className="page Facturacion">
+        <div className="pages">
           <div className="page-title">
             <h1>PRECARGA</h1>
           </div>
-          <p>Aqui puedes realizar la precarga de datos inicial. Completa todos los campos en el formato correspondiente. Una vez listo solo envia para guardar.</p>
+          <p>
+            Aqui puedes realizar la precarga de datos inicial. Completa todos
+            los campos en el formato correspondiente. Una vez listo solo envia
+            para guardar.
+          </p>
+          <h2>Consolidado:</h2>
           <Formulario fields={camposFormulario} onSubmit={handleSubmit} />
         </div>
       </div>

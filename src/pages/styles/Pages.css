@@ -23,3 +23,9 @@
   background-color: white;
   color: #001d3d;
 }
+
+.pages {
+  max-width: 1200px;
+  margin: 5px auto;
+  padding: 20px;
+}
