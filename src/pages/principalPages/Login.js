@@ -1,5 +1,5 @@
 import { createSearchParams, useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../../img/logo.png";
 
 // Style
@@ -9,13 +9,13 @@ import "../styles/LoginPages.css";
 const Login = () => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+  const [alertMessage, setAlertMessage] = useState(null);
   const navigate = useNavigate();
 
   // handleSubmit function
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Datos del usuario para enviar a la API
     const userData = {
       email: mail,
       password: password,
@@ -31,24 +31,38 @@ const Login = () => {
       });
 
       if (response.status === 200) {
-        // Autenticación exitosa, puedes redirigir al usuario a la página de inicio
         const responseData = await response.json();
-        navigate({
-          pathname: "/HOME",
-          search: createSearchParams({
-            id: responseData.id,
-          }).toString(),
-        });
+        console.log("Login exitoso:", responseData);
+
+        // Configura la cookie con el token JWT
+        document.cookie = `token=${responseData}; path=/; secure; samesite=strict`;
+
+        // Imprime la cookie en la consola
+        console.log("Cookie con el token JWT:", document.cookie);
+
+        setAlertMessage("¡Login exitoso! Espera a ser dirigido a la página principal.");
+        // Espera 3 segundos antes de redirigir para dar tiempo a leer el mensaje de éxito
+        setTimeout(() => {
+          navigate({
+            pathname: "/HOME",
+            search: createSearchParams({
+              id: responseData.id,
+            }).toString(),
+          });
+        }, 3000);
       } else if (response.status === 422) {
-        // Error de validación
         const errorData = await response.json();
         console.log("Error de validación:", errorData);
+        setAlertMessage(
+          "Credenciales inválidas. Por favor, inténtalo de nuevo."
+        ); // Mensaje de error
       } else {
-        // Otro error no manejado
         console.log("Error inesperado:", response.status);
+        setAlertMessage("Error inesperado. Por favor, inténtalo de nuevo."); // Mensaje de error
       }
     } catch (error) {
       console.error("Error de red:", error);
+      setAlertMessage("Error de red. Por favor, inténtalo de nuevo."); // Mensaje de error
     }
   };
 
@@ -81,6 +95,8 @@ const Login = () => {
             />
             <label>Contraseña</label>
           </div>
+          {/* Mensaje de alerta */}
+          {alertMessage && <div className="alert-message">{alertMessage}</div>}
           <br />
           {/* Enviar el formulario y llamar a handleSubmit */}
           <button className="Button-Login" type="submit">

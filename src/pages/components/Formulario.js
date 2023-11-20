@@ -31,6 +31,7 @@ const Formulario = ({ fields, onSubmit }) => {
   };
 
   return (
+    <div className="page Anicam">
     <form className="UniversalForm" onSubmit={handleSubmit}>
       {fields.map((field) => (
         <div key={field.name} className="form-group">
@@ -52,6 +53,7 @@ const Formulario = ({ fields, onSubmit }) => {
         <div className="success-message">{successMessage}</div>
       )}
     </form>
+    </div>
   );
 };
 

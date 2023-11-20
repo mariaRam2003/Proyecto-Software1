@@ -4,10 +4,13 @@ import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css"; // Importa los estilos de react-typist
 import React from "react";
+import { useState } from "react";
+// import { navigate } from "@reach/router";
 import Header from "../components/Header";
 import "../styles/Home.css";
 
 const Home = () => {
+
   return (
     <>
       <Header />

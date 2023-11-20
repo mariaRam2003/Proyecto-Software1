@@ -17,6 +17,7 @@ import BUSQUEDA from "./pages/principalPages/Busqueda";
 import CUSCAR from "./pages/principalPages/CUSCAR";
 import USUARIOS from "./pages/principalPages/Usuarios";
 // Importar las paginas de views
+import FiscalData from "./pages/viewsPages/FiscalData";
 import ANICAM from "./pages/viewsPages/ANICAM";
 import CX from "./pages/viewsPages/CX";
 import OPERATIONS from "./pages/viewsPages/OPERATIONS";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/SINGUP" element={<SINGUP />} />
         <Route path="/VIEWS" element={<VIEWS />} />
         <Route path="/PRECARGA" element={<PRECARGA />} />
+        <Route path="/FISCALDATA" element={<FiscalData />} />
         <Route path="/ANICAM" element={<ANICAM />} />
         <Route path="/CUSCAR" element={<CUSCAR />} />
         <Route path="/USUARIOS" element={<USUARIOS />} />

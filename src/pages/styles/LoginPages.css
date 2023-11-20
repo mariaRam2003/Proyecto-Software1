@@ -59,7 +59,7 @@
   .text-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color:white;
+    color: white;
     font-size: 12px;
   }
 }
@@ -88,19 +88,25 @@
 }
 
 .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-left: 90px;
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 90px;
 }
 
 .register-link {
-    color: white;
-    font-size: 14px;
+  color: white;
+  font-size: 14px;
 }
 .registrate-btn {
-    color: white;
-    font-size: 14px;
-    margin-left: 5px;
-    font-weight: bold;
+  color: white;
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.alert-message {
+  color: #0548b4;
+  font-size: 16px;
+  font-weight: 500;
 }

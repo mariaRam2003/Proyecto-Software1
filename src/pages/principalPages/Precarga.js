@@ -208,11 +208,12 @@ const PRECARGA = () => {
   return (
     <>
       <Header />
-      <div className="precarga-container">
+      <div>
         <div className="page Facturacion">
           <div className="page-title">
             <h1>PRECARGA</h1>
           </div>
+          <p>Aqui puedes realizar la precarga de datos inicial. Completa todos los campos en el formato correspondiente. Una vez listo solo envia para guardar.</p>
           <Formulario fields={camposFormulario} onSubmit={handleSubmit} />
         </div>
       </div>
