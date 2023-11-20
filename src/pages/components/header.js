@@ -39,8 +39,10 @@ const Header = () => {
     setDrawerOpen(false);
   };
   const handleLogout = () => {
-    // Realiza aquí la lógica para cerrar la sesión del usuario
-    navigate("/HOME"); // Redirige a la página de inicio después del cierre de sesión
+    // Eliminar Cookie
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    navigate("/"); // Redirige a la página de inicio después del cierre de sesión
   };
 
   return (
@@ -54,7 +56,9 @@ const Header = () => {
           <Link to="/HOME">HOME</Link>
           <Link to="/PRECARGA">PRECARGA</Link>
           <Link to="/VIEWS">DATOS</Link>
+          {/* Solo para admin */}
           <Link to="/USUARIOS">USUARIOS</Link>
+          {/* Solo para admin */}
           <Link to="/BUSQUEDA">BUSQUEDA</Link>
         </div>
         <div>

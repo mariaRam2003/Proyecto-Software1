@@ -27,13 +27,16 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch("http://3.88.218.62/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_DOMAIN + "/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
       if (response.status === 201) {
         // Autenticación exitosa, puedes redirigir al usuario a la página de inicio

@@ -19,7 +19,6 @@ const USUARIOS = () => {
     return token;
   };
 
-
   const [deleteUserData, setDeleteUserData] = useState({
     userEmail: "",
   });
@@ -61,21 +60,22 @@ const USUARIOS = () => {
   };
 
   const deleteUser = async () => {
-
     const token = getTokenFromCookie();
 
     try {
       // Realizar la solicitud DELETE a la API
-      const response = await fetch("http://3.88.218.62/users", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer ${token}",
-        },
-        body: JSON.stringify({
-          userEmail: deleteUserData.userEmail,
-        }),
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_DOMAIN + `/users?token=${token}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: deleteUserData.userEmail,
+          }),
+        }
+      );
 
       if (response.ok) {
         console.log("Usuario eliminado exitosamente");
@@ -88,19 +88,24 @@ const USUARIOS = () => {
   };
 
   const updateUserState = async () => {
+    const token = getTokenFromCookie();
+    const state = updateUserStateData.isActive ? "TRUE" : "FALSE";
+
     try {
       // Realizar la solicitud PUT a la API
-      const response = await fetch("http://3.88.218.62/users/state", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer YOUR_TOKEN",
-        },
-        body: JSON.stringify({
-          userEmail: updateUserStateData.userEmail,
-          state: updateUserStateData.isActive,
-        }),
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_DOMAIN +
+          `/users/state?state=${state}&token=${token}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: updateUserStateData.userEmail,
+          }),
+        }
+      );
 
       if (response.ok) {
         console.log("Estado de usuario actualizado exitosamente");
@@ -111,21 +116,25 @@ const USUARIOS = () => {
       console.error("Error en la solicitud PUT", error);
     }
   };
-
+  // Actualizar rol de usuario
   const updateRole = async () => {
+    const token = getTokenFromCookie();
+    const role = updateRoleData.role.toLowerCase();
+    const user_email = updateRoleData.userEmail;
+
     try {
       // Realizar la solicitud POST a la API
-      const response = await fetch("http://3.88.218.62/users/permissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer YOUR_TOKEN",
-        },
-        body: JSON.stringify({
-          userEmail: updateRoleData.userEmail,
-          role: updateRoleData.role,
-        }),
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_DOMAIN +
+          `/users/permissions?user_email=${user_email}&role=${role}&token=${token}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({}),
+        }
+      );
 
       if (response.ok) {
         console.log("Rol de usuario actualizado exitosamente");

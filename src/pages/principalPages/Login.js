@@ -22,13 +22,16 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch("http://3.88.218.62/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      const response = await fetch(
+        process.env.REACT_APP_API_DOMAIN + "/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
 
       if (response.status === 200) {
         const responseData = await response.json();
@@ -40,7 +43,9 @@ const Login = () => {
         // Imprime la cookie en la consola
         console.log("Cookie con el token JWT:", document.cookie);
 
-        setAlertMessage("¡Login exitoso! Espera a ser dirigido a la página principal.");
+        setAlertMessage(
+          "¡Login exitoso! Espera a ser dirigido a la página principal."
+        );
         // Espera 3 segundos antes de redirigir para dar tiempo a leer el mensaje de éxito
         setTimeout(() => {
           navigate({

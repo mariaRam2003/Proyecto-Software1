@@ -27,8 +27,6 @@ import FINANCE from "./pages/viewsPages/FINANCE";
  * Componente raíz que define las rutas y la navegación de la aplicación.
  */
 function App() {
-  // Estado para controlar si el usuario está autenticado
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   return (
     <BrowserRouter>
