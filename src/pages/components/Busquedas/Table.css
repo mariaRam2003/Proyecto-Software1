@@ -1,0 +1,73 @@
+/* Table.css */
+.tablita-invoice {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #000814;
+  margin-top: 20px;
+}
+
+.tablita-invoice th {
+  background-color: #001d3d;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Estilos para las celdas de datos */
+.tablita-invoice td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Estilos para las filas alternas (opcional) */
+.tablita-invoice tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.049);
+}
+
+/* Estilos para la primera columna (opcional) */
+.tablita-invoice td:first-child {
+  font-weight: bold;
+}
+
+.table-contenedor {
+  overflow-x: auto;
+  width: 100%;
+  background-color: #000814;
+  border-radius: 10px;
+}
+.table-contenedor th {
+  background-color: #001d3d;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Estilos para las celdas de datos */
+.table-contenedor td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Estilos para las filas alternas (opcional) */
+.table-contenedor tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.049);
+}
+
+/* Estilos para la primera columna (opcional) */
+.table-contenedor td:first-child {
+  font-weight: bold;
+}
+
+.table-contenedor::-webkit-scrollbar {
+  width: 100px; /* Ancho del scrollbar para navegadores basados en Webkit (como Opera GX) */
+  
+}
+.table-contenedor::-webkit-scrollbar-thumb {
+  background-color: #001d3d; /* Color del thumb (barra de desplazamiento) */
+  border-radius: 6px; /* Borde redondeado del thumb */
+}
+.table-contenedor::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color de fondo del scrollbar */
+}

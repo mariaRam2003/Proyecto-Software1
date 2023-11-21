@@ -57,7 +57,6 @@ const UserTable = () => {
                 users.map((user, index) => (
                   <tr key={index}>
                     <td>{user.nombre}</td>{" "}
-                    {/* Ajusta aquí para acceder a 'nombre' en lugar de 'name' */}
                     <td>{user.email}</td>
                     <td>{user.rol}</td>
                   </tr>

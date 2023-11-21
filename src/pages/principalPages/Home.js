@@ -1,5 +1,5 @@
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
-import GroupIcon from "@mui/icons-material/Group";
+import DataObjectIcon from "@mui/icons-material/DataObject";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css"; // Importa los estilos de react-typist
@@ -38,9 +38,9 @@ const Home = () => {
             </a>
             <a href="/USUARIOS" className="button">
               <div className="icon">
-                <GroupIcon sx={{ fontSize: "50px" }} />
+                <DataObjectIcon sx={{ fontSize: "50px" }} />
               </div>
-              Control de Usuarios
+              Modificar y Ver Datos
             </a>
           </div>
         </div>

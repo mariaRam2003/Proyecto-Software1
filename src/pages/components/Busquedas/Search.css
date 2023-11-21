@@ -1,0 +1,28 @@
+/* Search.css */
+form {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 25%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #034e9f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00296b;
+}

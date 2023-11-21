@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Table.css";
+// import "./Table.css";
 
 /**
  * Componente de tabla para mostrar y editar datos.
