@@ -20,6 +20,7 @@ const BusquedaPaquete = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [searchSuccess, setSearchSuccess] = useState(true);
 
   const handleSearch = async (searchTerm) => {
     const token = getTokenFromCookie();
@@ -35,11 +36,12 @@ const BusquedaPaquete = () => {
 
       const data = await response.json();
 
-      // Actualiza los resultados de búsqueda en el estado
+      // Actualizar los resultados de búsqueda en el estado
       setSearchResults(data);
+      setSearchSuccess(true); // Set searchSuccess to true when there are results
     } catch (error) {
       console.error("Error al realizar la búsqueda:", error);
-      // Puedes manejar el error de la forma que desees
+      setSearchSuccess(false); // Set searchSuccess to false on error
     }
   };
 
@@ -51,10 +53,16 @@ const BusquedaPaquete = () => {
     <div>
       <h2>Buscar por factura del Paquete</h2>
       <Search onSearch={handleSearch} />
-      <Table
-        headers={Object.keys(searchResults[0] || {})}
-        data={searchResults}
-      />
+      {searchSuccess ? (
+        <Table
+          headers={Object.keys(searchResults[0] || {})}
+          data={searchResults}
+        />
+      ) : (
+        <div className="error-message">
+          No se encontraron datos para esa búsqueda.
+        </div>
+      )}
     </div>
   );
 };
