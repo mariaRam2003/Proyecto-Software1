@@ -7,7 +7,12 @@ import Typography from "@mui/material/Typography";
 import "../styles/Usuarios.css";
 
 const USUARIOS = () => {
-  
+  const [messages, setMessages] = useState({
+    deleteUser: { successMessage: "", errorMessage: "" },
+    updateUserState: { successMessage: "", errorMessage: "" },
+    updateRole: { successMessage: "", errorMessage: "" },
+  });
+
   const getTokenFromCookie = () => {
     const cookieArray = document.cookie.split("; ");
     let token = null;
@@ -36,6 +41,14 @@ const USUARIOS = () => {
     userEmail: "",
     role: "",
   });
+
+  const clearMessages = () => {
+    setMessages({
+      deleteUser: { successMessage: "", errorMessage: "" },
+      updateUserState: { successMessage: "", errorMessage: "" },
+      updateRole: { successMessage: "", errorMessage: "" },
+    });
+  };
 
   const handleDeleteUserInputChange = (e) => {
     const { name, value } = e.target;
@@ -82,11 +95,32 @@ const USUARIOS = () => {
       );
 
       if (response.ok) {
-        console.log("Usuario eliminado exitosamente");
+        setMessages({
+          ...messages,
+          deleteUser: {
+            successMessage: "Usuario eliminado exitosamente",
+            errorMessage: "",
+          },
+        });
+        setDeleteUserData({ userEmail: "" });
+        setTimeout(() => clearMessages(), 3000);
       } else {
-        console.error("Error al eliminar usuario");
+        setMessages({
+          ...messages,
+          deleteUser: {
+            successMessage: "",
+            errorMessage: "Error al eliminar usuario",
+          },
+        });
       }
     } catch (error) {
+      setMessages({
+        ...messages,
+        deleteUser: {
+          successMessage: "",
+          errorMessage: "Error en la solicitud DELETE",
+        },
+      });
       console.error("Error en la solicitud DELETE", error);
     }
   };
@@ -112,11 +146,42 @@ const USUARIOS = () => {
       );
 
       if (response.ok) {
-        console.log("Estado de usuario actualizado exitosamente");
+        setMessages({
+          ...messages,
+          updateUserState: {
+            successMessage: "Estado de usuario actualizado exitosamente",
+            errorMessage: "",
+          },
+        });
+        setUpdateUserStateData({
+          userEmail: "",
+          isActive: false,
+        });
+        setTimeout(
+          () =>
+            setMessages({
+              ...messages,
+              updateUserState: { successMessage: "", errorMessage: "" },
+            }),
+          3000
+        );
       } else {
-        console.error("Error al actualizar estado de usuario");
+        setMessages({
+          ...messages,
+          updateUserState: {
+            successMessage: "",
+            errorMessage: "Error al actualizar estado de usuario",
+          },
+        });
       }
     } catch (error) {
+      setMessages({
+        ...messages,
+        updateUserState: {
+          successMessage: "",
+          errorMessage: "Error en la solicitud PUT",
+        },
+      });
       console.error("Error en la solicitud PUT", error);
     }
   };
@@ -141,11 +206,42 @@ const USUARIOS = () => {
       );
 
       if (response.ok) {
-        console.log("Rol de usuario actualizado exitosamente");
+        setMessages({
+          ...messages,
+          updateRole: {
+            successMessage: "Rol de usuario actualizado exitosamente",
+            errorMessage: "",
+          },
+        });
+        setUpdateRoleData({
+          userEmail: "",
+          role: "",
+        });
+        setTimeout(
+          () =>
+            setMessages({
+              ...messages,
+              updateRole: { successMessage: "", errorMessage: "" },
+            }),
+          3000
+        );
       } else {
-        console.error("Error al actualizar rol de usuario");
+        setMessages({
+          ...messages,
+          updateRole: {
+            successMessage: "",
+            errorMessage: "Error al actualizar rol de usuario",
+          },
+        });
       }
     } catch (error) {
+      setMessages({
+        ...messages,
+        updateRole: {
+          successMessage: "",
+          errorMessage: "Error en la solicitud POST",
+        },
+      });
       console.error("Error en la solicitud POST", error);
     }
   };
@@ -157,8 +253,8 @@ const USUARIOS = () => {
         <h1>User Management</h1>
         <div>
           <Link to="/USERTABLE">
-              <IconButton>
-                <div className="btn-users">
+            <IconButton>
+              <div className="btn-users">
                 <RemoveRedEyeIcon sx={{ fontSize: 30, color: "white" }} />
                 <Typography
                   variant="button"
@@ -166,8 +262,8 @@ const USUARIOS = () => {
                 >
                   Ver usuarios
                 </Typography>
-                </div>
-              </IconButton>
+              </div>
+            </IconButton>
           </Link>
         </div>
         <div className="Cards">
@@ -180,6 +276,16 @@ const USUARIOS = () => {
             onChange={handleDeleteUserInputChange}
           />
           <button onClick={deleteUser}>Eliminar Usuario</button>
+          {messages.deleteUser.successMessage && (
+            <div className="success-message">
+              {messages.deleteUser.successMessage}
+            </div>
+          )}
+          {messages.deleteUser.errorMessage && (
+            <div className="error-message">
+              {messages.deleteUser.errorMessage}
+            </div>
+          )}
         </div>
 
         <div className="Cards">
@@ -201,6 +307,16 @@ const USUARIOS = () => {
             />
           </label>
           <button onClick={updateUserState}>Actualizar Estado</button>
+          {messages.updateUserState.successMessage && (
+            <div className="success-message">
+              {messages.updateUserState.successMessage}
+            </div>
+          )}
+          {messages.updateUserState.errorMessage && (
+            <div className="error-message">
+              {messages.updateUserState.errorMessage}
+            </div>
+          )}
         </div>
 
         <div className="Cards">
@@ -220,6 +336,16 @@ const USUARIOS = () => {
             onChange={handleUpdateRoleInputChange}
           />
           <button onClick={updateRole}>Actualizar Rol</button>
+          {messages.updateRole.successMessage && (
+            <div className="success-message">
+              {messages.updateRole.successMessage}
+            </div>
+          )}
+          {messages.updateRole.errorMessage && (
+            <div className="error-message">
+              {messages.updateRole.errorMessage}
+            </div>
+          )}
         </div>
       </div>
     </>

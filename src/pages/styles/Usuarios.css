@@ -58,3 +58,13 @@
   background-color: #00296b;
   transition: 0.3s;
 }
+
+.success-message {
+  color: green;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
