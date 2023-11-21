@@ -11,8 +11,28 @@
 }
 
 .form-group {
-  width: 48%;
+  width: calc(48% - 10px);
   margin-bottom: 15px;
+}
+
+.sectionName {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+  background-color: #001d3d;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form-section {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .universal-label {

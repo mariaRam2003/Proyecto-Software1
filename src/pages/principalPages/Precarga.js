@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Formulario from "../components/Formulario";
-import FormularioWithoutBtn from "../components/Fomulario-btn";
 import "../styles/Pages.css";
 
 const PRECARGA = () => {
@@ -255,8 +254,72 @@ const PRECARGA = () => {
             los campos en el formato correspondiente. Una vez listo solo envia
             para guardar.
           </p>
-          <h2>Consolidado:</h2>
-          <Formulario fields={camposFormulario} onSubmit={handleSubmit} />
+          <Formulario
+            fields={camposFormulario}
+            onSubmit={handleSubmit}
+            sections={2}
+            sectionNames={["Consolidado", "Paquete"]}
+            sectionCampos={{
+              Consolidado: [
+                { label: "Descripción", name: "descripcion", type: "text" },
+                { label: "Transportista", name: "transportista", type: "text" },
+              ],
+              Paquete: [
+                { label: "Factura", name: "factura", type: "text" },
+                { label: "Fecha de Orden", name: "fecha_orden", type: "text" },
+                { label: "Contenido", name: "contenido", type: "text" },
+                { label: "Alto", name: "alto", type: "number" },
+                { label: "Ancho", name: "ancho", type: "number" },
+                { label: "Largo", name: "largo", type: "number" },
+                {
+                  label: "Peso en Libras",
+                  name: "peso_libras",
+                  type: "number",
+                },
+                {
+                  label: "Peso Volumétrico",
+                  name: "peso_volumetrico",
+                  type: "number",
+                },
+                {
+                  label: "Valor Producto en Dólares",
+                  name: "valor_producto_dolar",
+                  type: "number",
+                },
+                { label: "Unidades", name: "unidades", type: "number" },
+                {
+                  label: "Dirección de Casillero",
+                  name: "direccion_casillero",
+                  type: "text",
+                },
+                {
+                  label: "Empresa Remitente",
+                  name: "empresa_remitente",
+                  type: "text",
+                },
+                {
+                  label: "Nombre del Cliente",
+                  name: "cliente_nombre",
+                  type: "text",
+                },
+                {
+                  label: "Teléfono del Cliente",
+                  name: "cliente_telefono",
+                  type: "text",
+                },
+                {
+                  label: "Correo Electrónico del Cliente",
+                  name: "cliente_email",
+                  type: "text",
+                },
+                {
+                  label: "Dirección del Cliente",
+                  name: "cliente_direccion",
+                  type: "text",
+                },
+              ],
+            }}
+          />
         </div>
       </div>
     </>
