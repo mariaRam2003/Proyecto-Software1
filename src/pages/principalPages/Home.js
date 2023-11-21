@@ -36,7 +36,7 @@ const Home = () => {
               </div>
               Precarga
             </a>
-            <a href="/USUARIOS" className="button">
+            <a href="/VIEWS" className="button">
               <div className="icon">
                 <DataObjectIcon sx={{ fontSize: "50px" }} />
               </div>

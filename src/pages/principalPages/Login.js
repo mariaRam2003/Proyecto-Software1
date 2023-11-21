@@ -72,7 +72,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div className="login_area">
         <form className="form-signin" onSubmit={handleSubmit}>
           {/* Logo y título */}
