@@ -12,7 +12,7 @@ class FetchDataAnicam extends Component {
   }
 
   componentDidMount() {
-    fetch(process.env.REACT_APP_API_DOMAIN + "/views/anicam/")
+    fetch(process.env.REACT_APP_API_DOMAIN + "/users")
       .then((response) => response.json())
       .then((data) => this.setState({ records: data }))
       .catch((err) => console.log(err));

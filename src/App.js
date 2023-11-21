@@ -13,12 +13,14 @@ import PRECARGA from "./pages/principalPages/Precarga";
 import BUSQUEDA from "./pages/principalPages/Busqueda";
 import CUSCAR from "./pages/principalPages/CUSCAR";
 import USUARIOS from "./pages/principalPages/Usuarios";
+import UserTable from "./pages/principalPages/UsersTable";
 // Importar las paginas de views
 import FISCALDATA from "./pages/viewsPages/FiscalData";
 import ANICAM from "./pages/viewsPages/ANICAM";
 import ESTADOPAQUETE from "./pages/viewsPages/EstadoPaquete";
 import SELECTIVOSAT from "./pages/viewsPages/SelectivoSat";
-import FINANCE from "./pages/viewsPages/FINANCE";
+import GASTOS from "./pages/viewsPages/GASTOS";
+import REVISIONSAT from "./pages/viewsPages/RevisionSat";
 
 /**
  * Componente raíz que define las rutas y la navegación de la aplicación.
@@ -37,10 +39,12 @@ function App() {
         <Route path="/ANICAM" element={<ANICAM />} />
         <Route path="/CUSCAR" element={<CUSCAR />} />
         <Route path="/USUARIOS" element={<USUARIOS />} />
+        <Route path="/USERTABLE" element={<UserTable />} />
         <Route path="/BUSQUEDA" element={<BUSQUEDA />} />
         <Route path="/ESTADOPAQUETE" element={<ESTADOPAQUETE />} />
         <Route path="/SELECTIVOSAT" element={<SELECTIVOSAT />} />
-        <Route path="/FINANCE" element={<FINANCE />} />
+        <Route path="/GASTOS" element={<GASTOS />} />
+        <Route path="/REVISIONSAT" element={<REVISIONSAT />} />
       </Routes>
     </BrowserRouter>
   );

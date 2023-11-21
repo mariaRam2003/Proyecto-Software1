@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye"; // Icono de ojo
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
 import "../styles/Usuarios.css";
 
 const USUARIOS = () => {
@@ -151,6 +155,21 @@ const USUARIOS = () => {
       <Header />
       <div className="PAGE">
         <h1>User Management</h1>
+        <div>
+          <Link to="/USERTABLE">
+              <IconButton>
+                <div className="btn-users">
+                <RemoveRedEyeIcon sx={{ fontSize: 30, color: "white" }} />
+                <Typography
+                  variant="button"
+                  sx={{ color: "white", fontWeight: 600, padding: 2 }}
+                >
+                  Ver usuarios
+                </Typography>
+                </div>
+              </IconButton>
+          </Link>
+        </div>
         <div className="Cards">
           <h2>Borrar Usuario</h2>
           <input

@@ -1,0 +1,49 @@
+/* Estilos para la tabla */
+.PAGE {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.pagina {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-top: 5px ;
+    align-items: center;
+}
+.table-users {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Estilos para las celdas del encabezado */
+.table-users th {
+  background-color: #001d3d;
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Estilos para las celdas de datos */
+.table-users td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Estilos para las filas alternas (opcional) */
+.table-users tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.049);
+}
+
+/* Estilos para la primera columna (opcional) */
+.table-users td:first-child {
+  font-weight: bold;
+}
+
+/* Estilos para el contenedor de la página */
+.pages {
+  max-width: 800px;
+  margin: 0 auto;
+}

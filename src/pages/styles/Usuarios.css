@@ -46,3 +46,15 @@
 .Cards button:hover {
   background-color: #00296b;
 }
+
+.btn-users {
+  background-color: #001d3d;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+.btn-users:hover {
+  background-color: #00296b;
+  transition: 0.3s;
+}

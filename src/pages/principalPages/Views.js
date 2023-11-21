@@ -9,7 +9,7 @@ import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import EditLocationAltIcon from "@mui/icons-material/EditLocationAlt";
 import PreviewIcon from "@mui/icons-material/Preview";
 import PaidIcon from "@mui/icons-material/Paid";
-import FolderSharedIcon from "@mui/icons-material/FolderShared";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 import "../styles/Views.css";
 
@@ -49,33 +49,34 @@ const Views = () => {
             <Card component={Link} to="/SELECTIVOSAT" className="card">
               <CardContent>
                 <PreviewIcon sx={{ fontSize: 80, color: "white" }} />
-                <Typography variant="h5">Selectivo Rojo SAT</Typography>
+                <Typography variant="h5">Selectivo SAT</Typography>
                 <Typography variant="body2" className="card-text">
-                  Modifica y actualiza datos por selectivo Rojo SAT.
+                  Escoge y precarga los datos del con respecto al SAT para los
+                  paquetes.
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
 
           <Grid item xs={12} sm={6} md={6}>
-            <Card component={Link} to="/FINANCE" className="card">
+            <Card component={Link} to="/GASTOS" className="card">
               <CardContent>
                 <PaidIcon sx={{ fontSize: 80, color: "white" }} />
-                <Typography variant="h5">Montos a Cobrar</Typography>
+                <Typography variant="h5">Gastos por paquete</Typography>
                 <Typography variant="body2" className="card-text">
-                  Consulta los montos a cobrar correspondientes.
+                  Modifica los gastos que se tienen por paquete.
                 </Typography>
               </CardContent>
             </Card>
           </Grid>
 
           <Grid item xs={12} sm={6} md={6}>
-            <Card component={Link} to="/FINANCE" className="card">
+            <Card component={Link} to="/REVISIONSAT" className="card">
               <CardContent>
-                <FolderSharedIcon sx={{ fontSize: 80, color: "white" }} />
-                <Typography variant="h5">Datos Clientes</Typography>
+                <EditNoteIcon sx={{ fontSize: 80, color: "white" }} />
+                <Typography variant="h5">Revision SAT</Typography>
                 <Typography variant="body2" className="card-text">
-                  Cargar y subir informacion de los datos de clientes.
+                  Revisa y edita los datos de los paquetes con respecto al SAT.
                 </Typography>
               </CardContent>
             </Card>
