@@ -34,7 +34,7 @@ const Views = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card component={Link} to="/CX" className="card">
+            <Card component={Link} to="/ESTADOPAQUETE" className="card">
               <CardContent>
                 <EditLocationAltIcon sx={{ fontSize: 80, color: "white" }} />
                 <Typography variant="h5">Estado del Paquete</Typography>
@@ -46,7 +46,7 @@ const Views = () => {
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Card component={Link} to="/OPERATIONS" className="card">
+            <Card component={Link} to="/SELECTIVOSAT" className="card">
               <CardContent>
                 <PreviewIcon sx={{ fontSize: 80, color: "white" }} />
                 <Typography variant="h5">Selectivo Rojo SAT</Typography>

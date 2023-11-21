@@ -1,10 +1,13 @@
-// FiscalData.js
+// SelectivoSat.js
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Formulario from "../components/Formulario";
 import "../styles/Pages.css";
 
-const FISCALDATA = () => {
+/**
+ * Página para mostrar y administrar los datos de ANICAM.
+ */
+const SELECTIVOSAT = () => {
   const getTokenFromCookie = () => {
     const cookieArray = document.cookie.split("; ");
     let token = null;
@@ -25,28 +28,17 @@ const FISCALDATA = () => {
 
   const camposFormulario = [
     {
-      label: "Porcentaje DAI",
-      name: "dai_porcentaje",
-      type: "text",
+      label: "ID Consolidado",
+      name: "consolidado_id",
+      type: "numero",
       required: true,
     },
     {
-      label: "Poliza",
-      name: "poliza",
-      type: "text",
+      label: "Selectivo Asignado",
+      name: "selectivo_asignado",
+      type: "select",
+      options: ["Elige", "Rojo", "Verde"],
       required: true,
-    },
-    {
-      label: "Partida",
-      name: "partida",
-      type: "text",
-      required: true,
-    },
-    {
-      label: "Consignatario",
-      name: "consignatorio",
-      type: "text",
-      required: false,
     },
   ];
 
@@ -94,14 +86,11 @@ const FISCALDATA = () => {
     const token = getTokenFromCookie();
 
     const apiData = {
-      paquete_id: formData.paquete_id,
-      dai_porcentaje: formData.dai_porcentaje,
-      poliza: formData.poliza,
-      partida: formData.partida,
-      consignatario: formData.consignatario,
+      consolidado_id: formData.consolidado_id,
+      selectivo_asignado: formData.selectivo_asignado,
     };
 
-    fetch(process.env.REACT_APP_API_DOMAIN + `/impuesto?token=${token}`, {
+    fetch(process.env.REACT_APP_API_DOMAIN + `/selectivo?token=${token}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -114,7 +103,6 @@ const FISCALDATA = () => {
           setSuccessMessage("Los datos han sido cargados exitosamente");
         } else if (response.status === 422) {
           console.log("Error de validación");
-          setErrorMessage("Error de validación");
         } else if (response.status === 201) {
           console.log("Solicitud exitosa");
           setSuccessMessage("Los datos han sido cargados exitosamente");
@@ -133,48 +121,31 @@ const FISCALDATA = () => {
       <div>
         <div className="pages">
           <div className="page-title">
-            <h1>Informacion Fiscal</h1>
+            <h1>Selectivo SAT</h1>
           </div>
           <p>
-            Aqui puedes realizar la precarga de los datos de impuesto. Completa
-            todos los campos en el formato correspondiente. Una vez listo solo
-            envia para guardar.
+            Aqui puedes realizar la precarga de los datos del seguimiento del
+            paquete. Completa todos los campos en el formato correspondiente.
+            Una vez listo solo envia para guardar.
           </p>
           <Formulario
             fields={camposFormulario}
             onSubmit={handleSubmit}
             sections={1}
-            sectionNames={["Impuesto"]}
+            sectionNames={["Selectivo"]}
             sectionCampos={{
-              Impuesto: [
+              Selectivo: [
                 {
-                  label: "ID paquete",
-                  name: "paquete_id",
-                  type: "number",
+                  label: "ID Consolidado",
+                  name: "consolidado_id",
+                  type: "numero",
                   required: true,
                 },
                 {
-                  label: "Porcetaje DAI",
-                  name: "dai_porcentaje",
-                  type: "number",
-                  required: true,
-                },
-                {
-                  label: "Poliza",
-                  name: "poliza",
-                  type: "text",
-                  required: true,
-                },
-                {
-                  label: "Partida",
-                  name: "partida",
-                  type: "text",
-                  required: true,
-                },
-                {
-                  label: "Consignatorio",
-                  name: "consignatario",
-                  type: "text",
+                  label: "Selectivo Asignado",
+                  name: "selectivo_asignado",
+                  type: "select",
+                  options: ["Elige", "Rojo", "Verde"],
                   required: true,
                 },
               ],
@@ -186,4 +157,4 @@ const FISCALDATA = () => {
   );
 };
 
-export default FISCALDATA;
+export default SELECTIVOSAT;

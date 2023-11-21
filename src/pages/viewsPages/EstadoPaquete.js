@@ -1,10 +1,14 @@
-// FiscalData.js
+// EstadoPaquete.js
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Formulario from "../components/Formulario";
 import "../styles/Pages.css";
+import "../styles/Pages.css";
 
-const FISCALDATA = () => {
+/**
+ * Página para mostrar y administrar los datos de Seguimiento del Paquete.
+ */
+const ESTADOPAQUETE = () => {
   const getTokenFromCookie = () => {
     const cookieArray = document.cookie.split("; ");
     let token = null;
@@ -25,26 +29,28 @@ const FISCALDATA = () => {
 
   const camposFormulario = [
     {
-      label: "Porcentaje DAI",
-      name: "dai_porcentaje",
-      type: "text",
+      label: "Id Paquete",
+      name: "paquete_id",
+      type: "numero",
       required: true,
     },
     {
-      label: "Poliza",
-      name: "poliza",
-      type: "text",
+      label: "Estado actual",
+      name: "estado_actual",
+      type: "select",
+      options: [
+        "en transito",
+        "gestion aduana",
+        "revision SAT",
+        "liberado",
+        "en bodega",
+        "entregado",
+      ],
       required: true,
     },
     {
-      label: "Partida",
-      name: "partida",
-      type: "text",
-      required: true,
-    },
-    {
-      label: "Consignatario",
-      name: "consignatorio",
+      label: "Motivo Cambio",
+      name: "motivo_cambio",
       type: "text",
       required: false,
     },
@@ -94,14 +100,12 @@ const FISCALDATA = () => {
     const token = getTokenFromCookie();
 
     const apiData = {
-      paquete_id: formData.paquete_id,
-      dai_porcentaje: formData.dai_porcentaje,
-      poliza: formData.poliza,
-      partida: formData.partida,
-      consignatario: formData.consignatario,
+      estado_actual: formData.estado_actual,
+      motivo_cambio: formData.motivo_cambio,
+      paquete_id: parseInt(formData.paquete_id, 10),
     };
 
-    fetch(process.env.REACT_APP_API_DOMAIN + `/impuesto?token=${token}`, {
+    fetch(process.env.REACT_APP_API_DOMAIN + `/seguimiento?token=${token}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -114,7 +118,6 @@ const FISCALDATA = () => {
           setSuccessMessage("Los datos han sido cargados exitosamente");
         } else if (response.status === 422) {
           console.log("Error de validación");
-          setErrorMessage("Error de validación");
         } else if (response.status === 201) {
           console.log("Solicitud exitosa");
           setSuccessMessage("Los datos han sido cargados exitosamente");
@@ -133,49 +136,45 @@ const FISCALDATA = () => {
       <div>
         <div className="pages">
           <div className="page-title">
-            <h1>Informacion Fiscal</h1>
+            <h1>Seguimiento</h1>
           </div>
           <p>
-            Aqui puedes realizar la precarga de los datos de impuesto. Completa
-            todos los campos en el formato correspondiente. Una vez listo solo
-            envia para guardar.
+            Aqui puedes realizar la precarga de los datos del seguimiento del
+            paquete. Completa todos los campos en el formato correspondiente.
+            Una vez listo solo envia para guardar.
           </p>
           <Formulario
             fields={camposFormulario}
             onSubmit={handleSubmit}
             sections={1}
-            sectionNames={["Impuesto"]}
+            sectionNames={["Estado"]}
             sectionCampos={{
-              Impuesto: [
+              Estado: [
                 {
-                  label: "ID paquete",
+                  label: "Id Paquete",
                   name: "paquete_id",
-                  type: "number",
+                  type: "numero",
                   required: true,
                 },
                 {
-                  label: "Porcetaje DAI",
-                  name: "dai_porcentaje",
-                  type: "number",
+                  label: "Estado actual",
+                  name: "estado_actual",
+                  type: "select",
+                  options: [
+                    "en transito",
+                    "gestion aduana",
+                    "revision SAT",
+                    "liberado",
+                    "en bodega",
+                    "entregado",
+                  ],
                   required: true,
                 },
                 {
-                  label: "Poliza",
-                  name: "poliza",
+                  label: "Motivo Cambio",
+                  name: "motivo_cambio",
                   type: "text",
-                  required: true,
-                },
-                {
-                  label: "Partida",
-                  name: "partida",
-                  type: "text",
-                  required: true,
-                },
-                {
-                  label: "Consignatorio",
-                  name: "consignatario",
-                  type: "text",
-                  required: true,
+                  required: false,
                 },
               ],
             }}
@@ -186,4 +185,4 @@ const FISCALDATA = () => {
   );
 };
 
-export default FISCALDATA;
+export default ESTADOPAQUETE;

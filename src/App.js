@@ -1,10 +1,7 @@
 import React from "react";
-import { useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Style
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import FlightTakeoffTwoToneIcon from "@mui/icons-material/FlightTakeoffTwoTone";
 import "./index.css";
 
 // Importar las páginas principales
@@ -17,17 +14,16 @@ import BUSQUEDA from "./pages/principalPages/Busqueda";
 import CUSCAR from "./pages/principalPages/CUSCAR";
 import USUARIOS from "./pages/principalPages/Usuarios";
 // Importar las paginas de views
-import FiscalData from "./pages/viewsPages/FiscalData";
+import FISCALDATA from "./pages/viewsPages/FiscalData";
 import ANICAM from "./pages/viewsPages/ANICAM";
-import IMPUESTO from "./pages/viewsPages/IMPUESTO";
-import OPERATIONS from "./pages/viewsPages/OPERATIONS";
+import ESTADOPAQUETE from "./pages/viewsPages/EstadoPaquete";
+import SELECTIVOSAT from "./pages/viewsPages/SelectivoSat";
 import FINANCE from "./pages/viewsPages/FINANCE";
 
 /**
  * Componente raíz que define las rutas y la navegación de la aplicación.
  */
 function App() {
-
   return (
     <BrowserRouter>
       {/* Definición de rutas */}
@@ -37,13 +33,13 @@ function App() {
         <Route path="/SINGUP" element={<SINGUP />} />
         <Route path="/VIEWS" element={<VIEWS />} />
         <Route path="/PRECARGA" element={<PRECARGA />} />
-        <Route path="/FISCALDATA" element={<FiscalData />} />
+        <Route path="/FISCALDATA" element={<FISCALDATA />} />
         <Route path="/ANICAM" element={<ANICAM />} />
         <Route path="/CUSCAR" element={<CUSCAR />} />
         <Route path="/USUARIOS" element={<USUARIOS />} />
         <Route path="/BUSQUEDA" element={<BUSQUEDA />} />
-        <Route path="/IMPUESTO" element={<IMPUESTO />} />
-        <Route path="/OPERATIONS" element={<OPERATIONS />} />
+        <Route path="/ESTADOPAQUETE" element={<ESTADOPAQUETE />} />
+        <Route path="/SELECTIVOSAT" element={<SELECTIVOSAT />} />
         <Route path="/FINANCE" element={<FINANCE />} />
       </Routes>
     </BrowserRouter>

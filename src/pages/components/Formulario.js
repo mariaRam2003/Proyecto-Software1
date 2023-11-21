@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Formulario.css";
 
+// ...
+
 const Formulario = ({
   fields,
   onSubmit,
@@ -25,7 +27,7 @@ const Formulario = ({
 
     // Validación: Comprueba si los campos obligatorios están llenos
     for (const field of fields) {
-      if (!formData[field.name]) {
+      if (field.required && !formData[field.name]) {
         setErrorMessage(`Por favor, llena el campo ${field.label}.`);
         setSuccessMessage(null); // Clear success message if there was an error
         return;
@@ -48,13 +50,28 @@ const Formulario = ({
           {sectionFields.map((field) => (
             <div key={field.name} className="form-group">
               <label className="universal-label">{field.label}:</label>
-              <input
-                type={field.type || "text"}
-                name={field.name}
-                value={formData[field.name] || ""}
-                onChange={handleChange}
-                className="universal-input"
-              />
+              {field.type === "select" ? (
+                <select
+                  name={field.name}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  className="universal-input"
+                >
+                  {field.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  type={field.type || "text"}
+                  name={field.name}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  className="universal-input"
+                />
+              )}
             </div>
           ))}
         </div>
