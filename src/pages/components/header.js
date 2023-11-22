@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/logo.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
@@ -28,8 +22,43 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
 }));
 
 const Header = () => {
+  const getTokenFromCookie = () => {
+    const cookieArray = document.cookie.split("; ");
+    let token = null;
+
+    for (let i = 0; i < cookieArray.length; i++) {
+      const cookie = cookieArray[i];
+      if (cookie.startsWith("token=")) {
+        token = cookie.split("=")[1];
+        break;
+      }
+    }
+
+    return token;
+  };
+
   const navigate = useNavigate();
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [userRoles, setUserRoles] = useState({});
+
+  useEffect(() => {
+    const token = getTokenFromCookie();
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          process.env.REACT_APP_API_DOMAIN + `/users/permissions?token=${token}`
+        );
+        const data = await response.json();
+        console.log(data);
+        setUserRoles(data); // Store user roles in state
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const openDrawer = () => {
     setDrawerOpen(true);
@@ -38,16 +67,14 @@ const Header = () => {
   const closeDrawer = () => {
     setDrawerOpen(false);
   };
-  const handleLogout = () => {
-    // Eliminar Cookie
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-    navigate("/"); // Redirige a la página de inicio después del cierre de sesión
+  const handleLogout = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    navigate("/");
   };
 
   return (
     <div>
-      {/* Barra de navegación superior */}
       <div className="header">
         <Link to="/HOME" className="logo">
           <img src={logo} alt="Logo" />
@@ -56,9 +83,7 @@ const Header = () => {
           <Link to="/HOME">HOME</Link>
           <Link to="/PRECARGA">PRECARGA</Link>
           <Link to="/VIEWS">DATOS</Link>
-          {/* Solo para admin */}
-          <Link to="/USUARIOS">USUARIOS</Link>
-          {/* Solo para admin */}
+          {userRoles === "admin" && <Link to="/USUARIOS">USUARIOS</Link>}
           <Link to="/BUSQUEDA">BUSQUEDA</Link>
         </div>
         <div>
@@ -78,7 +103,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Menú lateral */}
       <StyledDrawer
         variant="persistent"
         anchor="right"
