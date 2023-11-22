@@ -44,7 +44,7 @@ const GASTOS = () => {
       name: "monto_combex",
       type: "numero",
       required: true,
-    }
+    },
   ];
 
   const isInteger = (value) => {
@@ -93,7 +93,7 @@ const GASTOS = () => {
     const apiData = {
       paquete_id: formData.paquete_id,
       monto_flete: formData.monto_flete,
-      monto_combex: formData.monto_combex
+      monto_combex: formData.monto_combex,
     };
 
     fetch(process.env.REACT_APP_API_DOMAIN + `/gasto?token=${token}`, {
@@ -148,13 +148,13 @@ const GASTOS = () => {
                   required: true,
                 },
                 {
-                  label: "Monto Flete",
+                  label: "Monto Flete (USD))",
                   name: "monto_flete",
                   type: "numero",
                   required: true,
                 },
                 {
-                  label: "Monto Combex",
+                  label: "Monto Combex (USD)",
                   name: "monto_combex",
                   type: "numero",
                   required: true,
